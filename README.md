@@ -1,4 +1,4 @@
-# 🧑‍💻 Santino Vargas Di Buono — Portfolio
+#  Santino Vargas Di Buono — Portfolio
 
 **Live:** https://santinovargasdb.netlify.app
 
