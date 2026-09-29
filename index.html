@@ -70,19 +70,20 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .blob{display:none} /* remove old blurred blobs */
 
 /* TICKER */
-.ticker-wrap{background:var(--ink);overflow:hidden;padding:12px 0}
-.ticker{display:flex;animation:ticker 22s linear infinite;white-space:nowrap}
+.ticker-wrap{background:var(--ink);overflow:hidden;padding:14px 0;border-top:1.5px dotted rgba(245,240,232,0.25);border-bottom:1.5px dotted rgba(245,240,232,0.25)}
+.ticker{display:flex;animation:ticker 24s linear infinite;white-space:nowrap;width:max-content}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker-item{display:inline-flex;align-items:center;gap:14px;padding:0 28px;font-family:var(--font-display);font-size:15px;letter-spacing:2px;color:rgba(245,240,232,0.45)}
-.ticker-item .dot{width:5px;height:5px;border-radius:50%}
+.ticker-item{display:inline-flex;align-items:center;gap:14px;padding:0 28px;font-family:var(--font-display);font-size:18px;letter-spacing:2px;color:rgba(245,240,232,0.5)}
+.ticker-item .dot{width:6px;height:6px;border-radius:50%}
 .ticker-item:nth-child(3n+1) .dot{background:var(--fire)}
 .ticker-item:nth-child(3n+2) .dot{background:var(--yellow)}
-.ticker-item:nth-child(3n)   .dot{background:var(--cyan)}
+.ticker-item:nth-child(3n) .dot{background:var(--cyan)}
 
 /* SECTIONS */
-section{padding:80px 40px;border-top:1px solid var(--border)}
-.section-label{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
-.section-title{font-family:var(--font-display);font-size:clamp(40px,5vw,60px);letter-spacing:1px;line-height:1.0;color:var(--ink);margin-bottom:40px}
+section{padding:var(--gap-sec) 40px;border:0}
+section > .container{max-width:var(--maxw);margin:0 auto}
+.section-label{font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--fire);margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:clamp(44px,7vw,90px);letter-spacing:0.02em;line-height:0.94;color:var(--ink);margin-bottom:48px}
 
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease}
