@@ -26,15 +26,19 @@ h1,h2,h3,.display{font-family:var(--font-display);letter-spacing:0.02em;line-hei
 a{color:inherit}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(245,240,232,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--ink)}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 40px;background:color-mix(in srgb,var(--canvas) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1.5px dotted var(--dot)}
+.nav-logo{font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--ink);white-space:nowrap}
 .nav-logo span{color:var(--fire)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--cyan)}
+.nav-pill{display:flex;gap:4px;align-items:center;background:var(--surface);border-radius:var(--r-pill);padding:6px 10px}
+.nav-pill a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:var(--r-pill);transition:background 0.18s,color 0.18s}
+.nav-pill a:hover{background:var(--ink);color:var(--surface)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-social{display:flex;gap:6px}
+.nav-social a{display:grid;place-items:center;width:34px;height:34px;border-radius:var(--r-pill);border:1.5px solid var(--border);color:var(--ink);text-decoration:none;font-size:15px;transition:all 0.18s}
+.nav-social a:hover{background:var(--fire);border-color:var(--fire);color:#fff;transform:translateY(-2px)}
 .lang-toggle{display:flex;gap:4px}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--muted);font-size:11px;font-weight:700;padding:4px 9px;border-radius:3px;cursor:pointer;font-family:var(--font-body);letter-spacing:0.08em;transition:all 0.18s}
-.lang-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.lang-btn{background:none;border:1.5px solid var(--border);color:var(--muted);font-size:11px;font-weight:700;padding:6px 11px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font-body);letter-spacing:0.08em;transition:all 0.18s}
+.lang-btn.active{background:var(--ink);color:var(--surface);border-color:var(--ink)}
 .lang-btn:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 
 /* HERO */
@@ -312,7 +316,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
 
 @media (max-width: 480px) {
   nav{padding:12px 16px}
-  .nav-links{display:none} /* keep logo + lang only on very small */
+  .nav-pill{display:none} /* keep logo + lang only on very small */
   .hero{padding:50px 16px 32px}
   .hero-name{font-size:clamp(52px,16vw,80px)}
   .skills-layout{grid-template-columns:1fr}
@@ -329,16 +333,22 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
 
 <nav>
   <div class="nav-logo">Santino Vargas Di Buono<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#sobre-mi" data-es="Sobre mi" data-en="About" data-jp="自己紹介">Sobre mi</a></li>
-    <li><a href="#skills" data-es="Skills" data-en="Skills" data-jp="スキル">Skills</a></li>
-    <li><a href="#proyectos" data-es="Proyectos" data-en="Projects" data-jp="プロジェクト">Proyectos</a></li>
-    <li><a href="#contacto" data-es="Contacto" data-en="Contact" data-jp="連絡">Contacto</a></li>
-  </ul>
-  <div class="lang-toggle">
-    <button class="lang-btn active">ES</button>
-    <button class="lang-btn">EN</button>
-    <button class="lang-btn">JP</button>
+  <div class="nav-pill">
+    <a href="#sobre-mi" data-es="Sobre mi" data-en="About" data-jp="自己紹介">Sobre mi</a>
+    <a href="#skills" data-es="Skills" data-en="Skills" data-jp="スキル">Skills</a>
+    <a href="#proyectos" data-es="Proyectos" data-en="Projects" data-jp="プロジェクト">Proyectos</a>
+    <a href="#contacto" data-es="Contacto" data-en="Contact" data-jp="連絡">Contacto</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://github.com/santinovargasdb" target="_blank" rel="noopener" aria-label="GitHub">&#128025;</a>
+      <a href="https://www.linkedin.com/in/santino-vargas-di-buono-7b77b2378" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active">ES</button>
+      <button class="lang-btn">EN</button>
+      <button class="lang-btn">JP</button>
+    </div>
   </div>
 </nav>
 
