@@ -176,23 +176,27 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 @media (max-width:1024px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* CONTACT */
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.contact-big-text{font-family:var(--font-display);font-size:clamp(42px,5.5vw,68px);letter-spacing:1px;line-height:1.05;color:var(--ink);margin-bottom:24px}
-.contact-big-text .fire{color:var(--fire)}
-.contact-big-text .cyan{color:var(--cyan)}
-.contact-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:32px}
+#contacto{background:var(--ink);color:var(--surface)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact-big{font-family:var(--font-display);font-size:clamp(44px,6vw,84px);line-height:0.96;letter-spacing:0.02em;margin-bottom:22px}
+.contact-big .fire{color:var(--fire2)}
+.contact-big .cyan{color:var(--cyan2)}
+.contact-sub{font-size:16px;color:rgba(245,240,232,0.7);line-height:1.7;margin-bottom:28px}
+.contact-form{display:flex;gap:10px;flex-wrap:wrap}
+.contact-input{flex:1;min-width:220px;background:transparent;border:1.5px solid rgba(245,240,232,0.4);border-radius:var(--r-input);padding:14px 24px;color:var(--surface);font-family:var(--font-body);font-weight:500;font-size:15px;outline:none}
+.contact-input::placeholder{color:rgba(245,240,232,0.45)}
+.contact-input:focus{border-color:var(--fire2)}
 .contact-links{display:flex;flex-direction:column;gap:10px}
-.contact-link{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--cream2);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;transition:all 0.2s;border-left:3px solid transparent}
-.contact-link:nth-child(1){border-left-color:var(--fire)}
-.contact-link:nth-child(2){border-left-color:var(--yellow)}
-.contact-link:nth-child(3){border-left-color:var(--cyan)}
-.contact-link:hover{background:var(--ink);color:var(--cream);transform:translateX(4px);border-left-color:var(--cream)}
+.contact-link{display:flex;align-items:center;gap:14px;padding:16px 22px;background:rgba(245,240,232,0.06);border:1.5px solid rgba(245,240,232,0.12);border-radius:var(--r-sm);text-decoration:none;color:var(--surface);font-size:14px;font-weight:500;transition:all 0.2s;border-left:4px solid transparent}
+.contact-link:nth-child(1){border-left-color:var(--cyan)}
+.contact-link:nth-child(2){border-left-color:var(--fire)}
+.contact-link:nth-child(3){border-left-color:var(--yellow)}
+.contact-link:hover{background:rgba(245,240,232,0.12);transform:translateX(6px)}
 .contact-link-icon{font-size:18px;width:24px;text-align:center}
-
-footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:500;letter-spacing:0.05em}
+footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:500;letter-spacing:0.04em;border-top:1.5px dotted rgba(245,240,232,0.25)}
 .footer-colors{display:flex;gap:6px}
-.footer-dot{width:8px;height:8px;border-radius:50%}
-.cursor-glow{position:fixed;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,194,204,0.05) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:9999}
+.footer-dot{width:9px;height:9px;border-radius:50%}
+.cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(232,78,27,0.07) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:9999}
 
 /* ── MOBILE RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -567,20 +571,23 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
   </div>
 </section>
 
-<section id="contacto">
+<section id="contacto"><div class="container">
   <div class="contact-layout">
     <div class="reveal-left">
-      <div class="contact-big-text" data-es="TRABAJAMOS<br><span class='cyan'>JUNTOS</span><span class='fire'>?</span>" data-en="SHALL WE<br><span class='cyan'>WORK</span><span class='fire'> TOGETHER?</span>" data-jp="一緒に<br><span class='cyan'>働き</span><span class='fire'>ませんか?</span>">TRABAJAMOS<br><span class="cyan">JUNTOS</span><span class="fire">?</span></div>
-      <p class="contact-sub" data-es="Estoy buscando mi primera oportunidad — dependencia o freelance. Si buscas a alguien con energía, compromiso y ganas de crecer, hablemos." data-en="I'm looking for my first opportunity — employment or freelance. If you're looking for someone with energy, commitment and drive to grow, let's talk." data-jp="最初のチャンスを探しています — 正社員またはフリーランス。エネルギー、コミットメント、成長意欲のある人を探しているなら、話しましょう。">Estoy buscando mi primera oportunidad &mdash; dependencia o freelance. Si buscas a alguien con energia, compromiso y ganas de crecer, hablemos.</p>
-      <a href="mailto:Santivargasdb@gmail.com" class="btn-fire" data-es="Escribime →" data-en="Write me →" data-jp="連絡する →">Escribime &rarr;</a>
+      <div class="contact-big" data-es="TRABAJAMOS<br><span class='cyan'>JUNTOS</span><span class='fire'>?</span>" data-en="SHALL WE<br><span class='cyan'>WORK</span><span class='fire'> TOGETHER?</span>" data-jp="一緒に<br><span class='cyan'>働き</span><span class='fire'>ませんか?</span>">TRABAJAMOS<br><span class="cyan">JUNTOS</span><span class="fire">?</span></div>
+      <p class="contact-sub" data-es="Estoy buscando mi primera oportunidad — dependencia o freelance. Si buscás energía, compromiso y ganas de crecer, hablemos." data-en="I'm looking for my first opportunity — employment or freelance. If you want energy, commitment and drive to grow, let's talk." data-jp="最初のチャンスを探しています — 正社員またはフリーランス。エネルギーとコミットメント、成長意欲のある人材をお探しなら、ぜひ。">Estoy buscando mi primera oportunidad &mdash; dependencia o freelance. Si buscas energia, compromiso y ganas de crecer, hablemos.</p>
+      <div class="contact-form">
+        <input class="contact-input" type="email" id="contactEmail" placeholder="tu@email.com" data-es-ph="tu@email.com" data-en-ph="your@email.com" data-jp-ph="your@email.com" aria-label="Email">
+        <button class="btn-fire mag" id="contactSend" data-es="Escribime →" data-en="Write me →" data-jp="連絡する →">Escribime &rarr;</button>
+      </div>
     </div>
     <div class="contact-links reveal-right">
-      <a href="https://www.linkedin.com/in/santino-vargas-di-buono-7b77b2378" target="_blank" rel="noopener" class="contact-link"><span class="contact-link-icon">&#128188;</span>LinkedIn &mdash; Santino Vargas Di Buono</a>
+      <a href="https://www.linkedin.com/in/santino-vargas-di-buono-7b77b2378" target="_blank" rel="noopener" class="contact-link"><span class="contact-link-icon">in</span>LinkedIn &mdash; Santino Vargas Di Buono</a>
       <a href="mailto:Santivargasdb@gmail.com" class="contact-link"><span class="contact-link-icon">&#9993;</span>Santivargasdb@gmail.com</a>
       <a href="https://github.com/santinovargasdb" target="_blank" rel="noopener" class="contact-link"><span class="contact-link-icon">&#128025;</span>GitHub &mdash; santinovargasdb</a>
     </div>
   </div>
-</section>
+</div></section>
 
 <footer>
   <span>&copy; 2025 Santino Vargas Di Buono &middot; Buenos Aires</span>
