@@ -772,26 +772,50 @@ if(send){ send.addEventListener('click',()=>{
   window.addEventListener('load', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
 })();
 
-// ── Fondo ASCII ripple ───────────────────────────────────────────
+// ── Fondo ASCII ──────────────────────────────────────────────────
 (function(){
   const cv = document.getElementById('ascii-bg');
   if(!cv) return;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = window.matchMedia('(pointer: coarse)').matches;
-  if(reduce || coarse || window.innerWidth < 760){ cv.style.display='none'; return; }
   const ctx = cv.getContext('2d');
-  const CELL = 15, GLYPHS = " .·:-=+*x%#@", DAMP = 0.945;
-  let W, H, cols, rows, prev, curr;
+  const CELL = 15;
+  const BASE = "·.:-=+*x#% ·.:- ";   // paleta de textura de fondo
+  const RIP  = "·:-=+*x%#@";          // glifos del ripple (de tenue a pesado)
+  const DAMP = 0.945;
+  let W, H, cols, rows, prev, curr, base;
 
+  function hashChar(x, y){
+    const r = Math.sin(x*12.9898 + y*78.233) * 43758.5453;
+    return BASE[Math.floor((r - Math.floor(r)) * BASE.length)];
+  }
+  function buildBase(){
+    base = document.createElement('canvas');
+    base.width = W; base.height = H;
+    const b = base.getContext('2d');
+    b.font = CELL+'px ui-monospace, Menlo, Consolas, monospace';
+    b.textBaseline = 'top';
+    b.fillStyle = 'rgba(131,105,74,0.17)';
+    for(let y=1;y<rows-1;y++) for(let x=1;x<cols-1;x++){
+      const c = hashChar(x, y);
+      if(c===' ') continue;
+      b.fillText(c, (x-1)*CELL, (y-1)*CELL);
+    }
+  }
   function resize(){
     W = cv.width = cv.clientWidth; H = cv.height = cv.clientHeight;
     cols = Math.ceil(W/CELL)+2; rows = Math.ceil(H/CELL)+2;
     prev = new Float32Array(cols*rows); curr = new Float32Array(cols*rows);
     ctx.font = CELL+'px ui-monospace, Menlo, Consolas, monospace';
     ctx.textBaseline = 'top';
+    buildBase();
+    ctx.clearRect(0,0,W,H); ctx.drawImage(base,0,0);
   }
   resize();
   window.addEventListener('resize', resize);
+
+  // mobile / reduce-motion: solo la textura estática, sin ripple
+  if(reduce || coarse || window.innerWidth < 760) return;
 
   function drop(px, py, s){
     const cx = Math.round(px/CELL)+1, cy = Math.round(py/CELL)+1, r = 2;
@@ -802,32 +826,31 @@ if(send){ send.addEventListener('click',()=>{
       prev[gy*cols+gx] += s*(1-d/r);
     }
   }
-
   let lastX=0, lastY=0, hasLast=false;
   window.addEventListener('pointermove', e=>{
     if(e.pointerType==='touch') return;
     const x=e.clientX, y=e.clientY;
     if(hasLast){
       const dist=Math.hypot(x-lastX,y-lastY), steps=Math.min(6,Math.floor(dist/CELL));
-      for(let i=0;i<=steps;i++) drop(lastX+(x-lastX)*i/Math.max(1,steps), lastY+(y-lastY)*i/Math.max(1,steps), 0.24);
+      for(let i=0;i<=steps;i++) drop(lastX+(x-lastX)*i/Math.max(1,steps), lastY+(y-lastY)*i/Math.max(1,steps), 0.26);
     }
     lastX=x; lastY=y; hasLast=true;
   }, {passive:true});
   window.addEventListener('pointerdown', e=>{ if(e.pointerType!=='touch') drop(e.clientX, e.clientY, 1.5); });
 
   let acc=0;
-  function ambient(dt){ acc+=dt; if(acc>1300){ acc=0; if(Math.random()<0.7) drop(Math.random()*W, Math.random()*H, 0.5); } }
+  function ambient(dt){ acc+=dt; if(acc>1600){ acc=0; if(Math.random()<0.6) drop(Math.random()*W, Math.random()*H, 0.5); } }
 
   function render(){
     ctx.clearRect(0,0,W,H);
+    ctx.drawImage(base,0,0);
     for(let y=1;y<rows-1;y++){
       for(let x=1;x<cols-1;x++){
         const v = prev[y*cols+x], a = Math.abs(v);
-        if(a < 0.085) continue;
-        const g = GLYPHS[Math.min(GLYPHS.length-1, 1 + Math.floor(a*(GLYPHS.length-1)))];
-        if(g===' ') continue;
-        const alpha = Math.min(0.24, a*0.32);
-        ctx.fillStyle = v>0 ? 'rgba(224,88,38,'+alpha+')' : 'rgba(122,104,84,'+alpha+')';
+        if(a < 0.08) continue;
+        const g = RIP[Math.min(RIP.length-1, Math.floor(a*(RIP.length-1)))];
+        const alpha = Math.min(0.42, 0.16 + a*0.45);
+        ctx.fillStyle = 'rgba(150,96,58,'+alpha+')';
         ctx.fillText(g, (x-1)*CELL, (y-1)*CELL);
       }
     }
