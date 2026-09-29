@@ -437,7 +437,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
   </div>
 </div>
 
-<div class="section-label reveal" data-es="Más proyectos" data-en="More projects" data-jp="その他のプロジェクト">Mas proyectos <span class="proj-count" data-count="7">0</span></div>
+<div class="section-label reveal"><span data-es="Más proyectos" data-en="More projects" data-jp="その他のプロジェクト">Mas proyectos</span> <span class="proj-count" data-count="7">0</span></div>
 <div class="filter-bar reveal">
   <button class="filter-pill active" data-filter="all" data-es="Todos" data-en="All" data-jp="すべて">Todos</button>
   <button class="filter-pill" data-filter="fullstack">Full-stack</button>
@@ -645,7 +645,7 @@ if(!reduce){
 // ── Halftone parallax ─────────────────────────────────────────────
 if(!reduce){
   const ph=document.querySelector('.photo-halftone');
-  if(ph){ window.addEventListener('scroll',()=>{ const y=window.scrollY; if(y<900) ph.style.transform=`translateY(${y*0.04}px)`; },{passive:true}); }
+  if(ph){ window.addEventListener('scroll',()=>{ const y=window.scrollY; if(y<900) ph.style.transform=`translateY(${y*0.04}px)`; else ph.style.transform=''; },{passive:true}); }
 }
 
 // ── Contact mailto ────────────────────────────────────────────────
