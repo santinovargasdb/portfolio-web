@@ -135,6 +135,7 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 
 /* PROJECTS — barril 3D */
 .barrel-stage{--cw:min(1000px,94%);--ch:clamp(300px,44vh,344px);position:relative;height:clamp(430px,62vh,560px);perspective:1500px;overflow:hidden;touch-action:pan-y;outline:none;cursor:grab}
+.barrel-stage:focus-visible{outline:2px solid var(--fire);outline-offset:3px}
 .barrel{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
 .barrel-card{position:absolute;top:50%;left:50%;width:var(--cw);height:var(--ch);margin-left:calc(var(--cw)/-2);margin-top:calc(var(--ch)/-2);display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-card);overflow:hidden;backface-visibility:hidden;transition:opacity .12s linear,border-color .2s}
 .barrel-card.active{border-color:var(--fire)}
@@ -719,6 +720,8 @@ if(send){ send.addEventListener('click',()=>{
       c.classList.toggle('active', isActive);
       c.style.opacity = isActive ? '1' : String(Math.max(0.06, 1 - d/62) * 0.55);
       c.style.pointerEvents = isActive ? 'auto' : 'none';
+      c.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      c.querySelectorAll('a').forEach(a=>{ a.tabIndex = isActive ? 0 : -1; });
     });
   }
   function animate(){
@@ -764,7 +767,7 @@ if(send){ send.addEventListener('click',()=>{
     if(mq.matches || rm){
       stage.classList.add('flat');
       barrel.style.transform='';
-      cards.forEach(c=>{ c.style.transform=''; c.style.opacity=''; c.style.pointerEvents=''; });
+      cards.forEach(c=>{ c.style.transform=''; c.style.opacity=''; c.style.pointerEvents=''; c.removeAttribute('aria-hidden'); c.querySelectorAll('a').forEach(a=>{ a.tabIndex = 0; }); });
     } else {
       stage.classList.remove('flat'); layout(); render();
     }
@@ -772,6 +775,7 @@ if(send){ send.addEventListener('click',()=>{
   setMode();
   (mq.addEventListener ? mq.addEventListener('change', setMode) : mq.addListener(setMode));
   window.addEventListener('resize', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
+  window.addEventListener('load', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
 })();
 </script>
 </body>
