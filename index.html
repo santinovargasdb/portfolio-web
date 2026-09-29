@@ -135,59 +135,45 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 .skill-item.strong::before{display:none}
 
 /* PROJECTS */
-.projects-layout{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-.project-main{background:var(--ink);border-radius:12px;padding:40px;color:var(--cream);position:relative;overflow:hidden;transition:transform 0.3s}
-.project-main:hover{transform:translateY(-4px)}
-.project-main::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fire),var(--yellow),var(--cyan))}
-.project-main-bg{position:absolute;right:-30px;bottom:-40px;font-family:var(--font-display);font-size:180px;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none}
-.project-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:16px;background:var(--yellow);color:var(--ink)}
-.project-badge.wip{background:rgba(0,194,204,0.2);color:var(--cyan2)}
-.project-main-title{font-family:var(--font-display);font-size:36px;letter-spacing:1px;color:var(--cream);margin-bottom:12px;line-height:1.1}
-.project-main-desc{font-size:14px;color:rgba(245,240,232,0.6);line-height:1.75;margin-bottom:24px;max-width:420px}
-.project-tags{display:flex;flex-wrap:wrap;gap:6px}
-.project-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:2px;background:rgba(255,255,255,0.07);color:rgba(245,240,232,0.6);letter-spacing:0.05em}
-.project-main-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}
-.project-main-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--cream);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s}
-.project-main-link:hover{color:var(--fire2);border-bottom-color:var(--fire2)}
-.project-main-link .ic{font-size:14px;line-height:1}
-.project-side{display:flex;flex-direction:column;gap:16px}
-.project-mini{background:var(--cream2);border:1px solid var(--border);border-radius:12px;padding:24px;flex:1;border-top:3px solid var(--cyan);transition:transform 0.2s}
-.project-mini:hover{transform:translateY(-3px)}
-.project-mini:last-child{border-top-color:var(--yellow)}
-.project-mini-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.project-mini-title{font-family:var(--font-display);font-size:22px;letter-spacing:0.5px;color:var(--ink);margin-bottom:8px;line-height:1.1}
-.project-mini-desc{font-size:12px;color:var(--muted);line-height:1.65}
-a.project-mini{text-decoration:none;color:inherit;display:flex;flex-direction:column}
-.project-mini-link{margin-top:auto;padding-top:12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan)}
-a.project-mini:last-child .project-mini-link{color:var(--yellow)}
-
-/* PROJECTS — repos grid */
-.projects-more{margin-top:40px}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-.project-card{display:flex;flex-direction:column;background:var(--cream2);border:1px solid var(--border);border-top:3px solid var(--cyan);border-radius:12px;padding:24px;transition:transform .22s,box-shadow .22s}
-.project-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,22,18,0.09)}
-.projects-grid .project-card:nth-child(2){border-top-color:var(--fire)}
-.projects-grid .project-card:nth-child(3){border-top-color:var(--yellow)}
-.projects-grid .project-card:nth-child(4){border-top-color:var(--cyan)}
-.projects-grid .project-card:nth-child(5){border-top-color:var(--fire2)}
-.project-card-badge{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;background:var(--cream3);color:var(--muted);margin-bottom:14px}
-.project-card-title{font-family:var(--font-display);font-size:26px;letter-spacing:0.5px;color:var(--ink);margin-bottom:10px;line-height:1.05}
-.project-card-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
-.project-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.tag-light{font-size:11px;font-weight:600;padding:4px 10px;border-radius:2px;background:var(--cream3);color:var(--muted);letter-spacing:0.04em}
-.project-card-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:auto}
-.project-card-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color .2s,color .2s}
-.project-card-link:hover{color:var(--fire);border-bottom-color:var(--fire)}
-.project-card-link .ic{font-size:14px;line-height:1}
-.project-card.featured{grid-column:1 / -1;background:var(--ink);border-color:rgba(255,255,255,0.06);border-top:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;padding:32px}
-.project-card.featured::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fire),var(--yellow),var(--cyan))}
-.project-card.featured .project-card-title{color:var(--cream);font-size:36px}
-.project-card.featured .project-card-desc{color:rgba(245,240,232,0.6);max-width:680px}
-.project-card.featured .project-card-badge{background:var(--yellow);color:var(--ink)}
-.project-card.featured .tag-light{background:rgba(255,255,255,0.07);color:rgba(245,240,232,0.6)}
-.project-card.featured .project-card-link{color:var(--cream)}
-.project-card.featured .project-card-link:hover{color:var(--fire2);border-bottom-color:var(--fire2)}
-@media (max-width:1024px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+/* Tier 1 — insignia halftone */
+.proj-hero{position:relative;border-radius:var(--r-card);overflow:hidden;background:linear-gradient(135deg,var(--cyan) 0%,var(--fire) 100%);color:#fff;padding:48px;margin-bottom:20px}
+.proj-hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.6) 18%,transparent 19%);background-size:16px 16px;-webkit-mask-image:linear-gradient(200deg,#000,transparent 60%);mask-image:linear-gradient(200deg,#000,transparent 60%);opacity:0.4;pointer-events:none}
+.proj-hero > *{position:relative;z-index:1}
+.proj-hero .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:var(--r-pill);background:rgba(0,0,0,0.25);margin-bottom:18px}
+.proj-hero h3{font-family:var(--font-display);font-size:clamp(40px,6vw,72px);line-height:0.94;margin-bottom:14px}
+.proj-hero p{max-width:560px;font-size:16px;line-height:1.7;opacity:0.92;margin-bottom:22px}
+/* Tier 2 — dark destacado */
+.proj-dark{position:relative;background:var(--ink);color:var(--surface);border-radius:var(--r-card);padding:44px;overflow:hidden;margin-bottom:40px}
+.proj-dark::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fire),var(--yellow),var(--cyan))}
+.proj-dark .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:var(--r-pill);background:var(--yellow);color:var(--ink);margin-bottom:16px}
+.proj-dark h3{font-family:var(--font-display);font-size:clamp(34px,5vw,56px);line-height:0.96;margin-bottom:14px}
+.proj-dark p{max-width:640px;font-size:15px;line-height:1.7;color:rgba(245,240,232,0.7);margin-bottom:20px}
+/* tags + links compartidos */
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px}
+.tag{font-size:12px;font-weight:600;padding:5px 12px;border-radius:var(--r-pill);background:var(--surface-2);color:var(--muted)}
+.proj-hero .tag{background:rgba(255,255,255,0.18);color:#fff}
+.proj-dark .tag{background:rgba(255,255,255,0.08);color:rgba(245,240,232,0.75)}
+.links{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px}
+.plink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;color:inherit;border-bottom:2px solid transparent;padding-bottom:2px;transition:border-color 0.2s}
+.plink:hover{border-bottom-color:currentColor}
+/* filter bar */
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 24px}
+.filter-pill{font-size:14px;font-weight:600;padding:8px 18px;border-radius:var(--r-pill);border:1.5px solid var(--border);background:transparent;color:var(--ink);cursor:pointer;font-family:var(--font-body);transition:all 0.18s}
+.filter-pill.active{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.filter-pill:hover:not(.active){border-color:var(--ink)}
+/* grid */
+.proj-count{font-family:var(--font-display);font-size:26px;color:var(--fire);margin-left:6px}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj-card{display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-card);padding:28px;transition:transform 0.22s,border-color 0.22s}
+.proj-card:hover{transform:translateY(-6px);border-color:var(--fire)}
+.proj-card.hide{display:none}
+.cat-tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:var(--r-pill);background:var(--yellow);color:var(--ink);margin-bottom:14px}
+.proj-card h4{font-family:var(--font-display);font-size:30px;letter-spacing:0.5px;line-height:1;color:var(--ink);margin-bottom:10px}
+.proj-card .desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.live-dot{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--fire)}
+.live-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fire);animation:pulse 1.5s ease-in-out infinite}
+.proj-card .links{margin-top:auto}
+@media (max-width:1024px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* CONTACT */
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -260,18 +246,11 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
   .skill-col-head{font-size:18px}
 
   /* PROJECTS */
-  .projects-layout{grid-template-columns:1fr;gap:16px}
-  .project-main{padding:28px 24px}
-  .project-main-title{font-size:26px}
-  .project-main-bg{font-size:100px;right:-10px;bottom:-20px}
-  .project-side{flex-direction:column;gap:12px}
-  .project-mini{padding:18px}
-  .projects-more{margin-top:28px}
-  .projects-grid{grid-template-columns:1fr;gap:14px}
-  .project-card{padding:20px}
-  .project-card.featured{padding:24px}
-  .project-card-title{font-size:22px}
-  .project-card.featured .project-card-title{font-size:26px}
+  .proj-hero{padding:28px 24px}
+  .proj-dark{padding:28px 24px}
+  .proj-grid{grid-template-columns:1fr;gap:14px}
+  .proj-card{padding:20px}
+  .proj-card h4{font-size:24px}
 
   /* CONTACT */
   .contact-layout{grid-template-columns:1fr;gap:32px}
@@ -480,111 +459,111 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
 </section>
 
 <section id="proyectos">
+  <div class="container">
   <div class="section-label reveal" data-es="Trabajo" data-en="Work" data-jp="実績">Trabajo</div>
   <h2 class="section-title reveal" data-es="PROYECTOS" data-en="PROJECTS" data-jp="プロジェクト">PROYECTOS</h2>
-  <div class="projects-layout">
-    <div class="project-main reveal-left">
-      <div class="project-main-bg">PWA</div>
-      <div class="project-badge" data-es="Full-stack · PWA" data-en="Full-stack · PWA" data-jp="フルスタック · PWA">Full-stack &middot; PWA</div>
-      <div class="project-main-title" data-es="ALTOQUE<br>MARKETPLACE" data-en="ALTOQUE<br>MARKETPLACE" data-jp="ALTOQUE<br>マーケットプレイス">ALTOQUE<br>MARKETPLACE</div>
-      <p class="project-main-desc" data-es="Marketplace que conecta personas con profesionales de oficios verificados —plomeros, electricistas, cerrajeros— para urgencias y trabajos agendados. Matching por geolocalización (PostGIS), pago híbrido con Mercado Pago (split por trabajo) e instalable como PWA." data-en="Marketplace connecting people with verified trade professionals —plumbers, electricians, locksmiths— for emergencies and scheduled jobs. Geolocation matching (PostGIS), hybrid Mercado Pago payments (per-job split) and installable as a PWA." data-jp="認証済みの職人（配管工・電気工・鍵屋など）とユーザーをつなぐマーケットプレイス。緊急対応と予約作業に対応。位置情報マッチング（PostGIS）、Mercado Pagoによるハイブリッド決済（作業ごとの分割）、PWA対応。">Marketplace que conecta personas con profesionales de oficios verificados &mdash;plomeros, electricistas, cerrajeros&mdash; para urgencias y trabajos agendados. Matching por geolocalizacion (PostGIS), pago hibrido con Mercado Pago (split por trabajo) e instalable como PWA.</p>
-      <div class="project-tags">
-        <span class="project-tag">Next.js 15</span>
-        <span class="project-tag">TypeScript</span>
-        <span class="project-tag">Supabase</span>
-        <span class="project-tag">PostGIS</span>
-        <span class="project-tag">Mercado Pago</span>
-        <span class="project-tag">Tailwind v4</span>
-        <span class="project-tag">PWA</span>
-      </div>
-      <div class="project-main-links">
-        <a href="https://github.com/santinovargasdb/AlToque" target="_blank" rel="noopener" class="project-main-link"><span class="ic">&#128025;</span>GitHub</a>
-      </div>
-    </div>
-    <div class="project-side reveal-right">
-      <a href="https://github.com/santinovargasdb/portfolio-web" target="_blank" rel="noopener" class="project-mini">
-        <div class="project-mini-label" data-es="En vivo · Open source" data-en="Live · Open source" data-jp="公開中 · オープンソース">En vivo &middot; Open source</div>
-        <div class="project-mini-title" data-es="ESTE SITIO WEB" data-en="THIS WEBSITE" data-jp="このサイト">ESTE SITIO WEB</div>
-        <p class="project-mini-desc" data-es="Portfolio personal con soporte ES / EN / JP. Diseñado y desarrollado desde cero en HTML, CSS y JS vanilla." data-en="Personal portfolio with ES / EN / JP support. Designed and built from scratch in vanilla HTML, CSS and JS." data-jp="ES / EN / JP対応の個人ポートフォリオ。バニラHTML・CSS・JSでゼロから設計・開発。">Portfolio personal con soporte ES / EN / JP. Disenado y desarrollado desde cero en HTML, CSS y JS vanilla.</p>
-        <span class="project-mini-link" data-es="Ver repo →" data-en="View repo →" data-jp="リポジトリを見る →">Ver repo &rarr;</span>
-      </a>
-      <a href="https://filtro-redes-sociales-smt.vercel.app" target="_blank" rel="noopener" class="project-mini">
-        <div class="project-mini-label" data-es="En producción · SMATA" data-en="In production · SMATA" data-jp="本番稼働 · SMATA">En produccion &middot; SMATA</div>
-        <div class="project-mini-title" data-es="MONITOR DE MEDIOS" data-en="MEDIA MONITOR" data-jp="メディアモニター">MONITOR DE MEDIOS</div>
-        <p class="project-mini-desc" data-es="Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con scoring por IA (Gemini) e informes en Word." data-en="Real solution for a real company: media & social monitor for SMATA's Press Dept., with AI scoring (Gemini) and Word reports." data-jp="実際の企業のための実際の解決策。SMATA広報部向けのメディア・SNSモニター。AI（Gemini）スコアリングとWordレポート付き。">Solucion real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con scoring por IA (Gemini) e informes en Word.</p>
-        <span class="project-mini-link" data-es="Ver en vivo →" data-en="View live →" data-jp="デモを見る →">Ver en vivo &rarr;</span>
-      </a>
+
+<!-- TIER 1: insignia -->
+<div class="proj-hero reveal">
+  <span class="badge" data-es="Proyecto insignia · Full-stack" data-en="Flagship · Full-stack" data-jp="代表作 · フルスタック">Proyecto insignia &middot; Full-stack</span>
+  <h3>ALTOQUE</h3>
+  <p data-es="Marketplace que conecta personas con profesionales de oficios verificados —plomeros, electricistas, cerrajeros— para urgencias y trabajos agendados. Matching por geolocalización (PostGIS), pago híbrido con Mercado Pago e instalable como PWA." data-en="Marketplace connecting people with verified trade professionals —plumbers, electricians, locksmiths— for emergencies and scheduled jobs. Geolocation matching (PostGIS), hybrid Mercado Pago payments and installable as a PWA." data-jp="認証済みの職人（配管工・電気工・鍵屋）とユーザーをつなぐマーケットプレイス。位置情報マッチング（PostGIS）、Mercado Pagoハイブリッド決済、PWA対応。">Marketplace que conecta personas con profesionales de oficios verificados &mdash;plomeros, electricistas, cerrajeros&mdash; para urgencias y trabajos agendados. Matching por geolocalizacion (PostGIS), pago hibrido con Mercado Pago e instalable como PWA.</p>
+  <div class="tags">
+    <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostGIS</span><span class="tag">Mercado Pago</span><span class="tag">Tailwind v4</span><span class="tag">PWA</span>
+  </div>
+  <div class="links">
+    <a class="plink" href="https://github.com/santinovargasdb/AlToque" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+    <a class="plink" href="https://al-toque-eta.vercel.app" target="_blank" rel="noopener" data-es="Ver en vivo ↗" data-en="View live ↗" data-jp="デモを見る ↗">Ver en vivo &nearr;</a>
+  </div>
+</div>
+
+<!-- TIER 2: destacado dark -->
+<div class="proj-dark reveal">
+  <span class="badge" data-es="Liderazgo · IoT · 2024" data-en="Leadership · IoT · 2024" data-jp="リーダーシップ · IoT · 2024">Liderazgo &middot; IoT &middot; 2024</span>
+  <h3 data-es="SMART HOME — DOMÓTICA" data-en="SMART HOME — AUTOMATION" data-jp="スマートホーム — 自動化">SMART HOME &mdash; DOMOTICA</h3>
+  <p data-es="Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 personas como PM y dev frontend." data-en="Scale model of a functional smart home with ESP32 connected via WiFi to a web interface. Real-time control of servomotors, LEDs and sensors. Led a team of 5 as PM and frontend developer." data-jp="WiFi接続ESP32とWebインターフェースによるスマートホームの縮尺模型。サーボ・LED・センサーをリアルタイム制御。PMとフロント開発者として5人チームをリード。">Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lidere un equipo de 5 personas como PM y dev frontend.</p>
+  <div class="tags">
+    <span class="tag">ESP32</span><span class="tag">HTML / CSS</span><span class="tag">WiFi</span><span class="tag">IoT</span><span class="tag">Team Lead x5</span><span class="tag">XAMPP</span>
+  </div>
+</div>
+
+<div class="section-label reveal" data-es="Más proyectos" data-en="More projects" data-jp="その他のプロジェクト">Mas proyectos <span class="proj-count" data-count="7">0</span></div>
+<div class="filter-bar reveal">
+  <button class="filter-pill active" data-filter="all" data-es="Todos" data-en="All" data-jp="すべて">Todos</button>
+  <button class="filter-pill" data-filter="fullstack">Full-stack</button>
+  <button class="filter-pill" data-filter="data" data-es="Data & IA" data-en="Data & AI" data-jp="データ & AI">Data & IA</button>
+</div>
+<div class="proj-grid">
+
+  <div class="proj-card reveal" data-cat="fullstack">
+    <span class="cat-tag">Full-stack · PWA</span>
+    <h4>LOGISWIFT</h4>
+    <p class="desc" data-es="PWA mobile-first de logística urbana para un repartidor/vendedor: hoja de ruta del día, registro de ventas al instante, stock del vehículo y cierre de jornada. Pensada para usarse con una mano." data-en="Mobile-first urban-logistics PWA for a delivery driver/vendor: daily route sheet, on-the-spot sales logging, vehicle stock and end-of-day close. Built to be used one-handed." data-jp="配達員・販売員向けモバイルファースト物流PWA：日次ルート、その場での売上記録、車両在庫、日次締め。片手操作を想定。">PWA mobile-first de logistica urbana para un repartidor/vendedor: hoja de ruta del dia, registro de ventas al instante, stock del vehiculo y cierre de jornada. Pensada para usarse con una mano.</p>
+    <div class="tags"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Tailwind v4</span><span class="tag">Supabase</span><span class="tag">PWA</span></div>
+    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/LogiSwift" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
+  </div>
+
+  <div class="proj-card reveal" data-cat="fullstack">
+    <span class="cat-tag">Full-stack · Pagos</span>
+    <h4 data-es="OCTAVA CAFÉ" data-en="OCTAVA CAFÉ" data-jp="オクタバ カフェ">OCTAVA CAFE</h4>
+    <p class="desc" data-es="Cafetería de especialidad Take Away: catálogo online, personalización del pedido (leche, azúcar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN)." data-en="Specialty coffee shop, take-away only: online catalog, order customization (milk, sugar, gluten-free), pickup time and Mercado Pago payment (Checkout Pro + IPN webhooks)." data-jp="スペシャルティコーヒーのテイクアウト専門店：オンラインカタログ、注文カスタマイズ（ミルク・砂糖・グルテンフリー）、受取時間、Mercado Pago決済（Checkout Pro + IPN）。">Cafeteria de especialidad Take Away: catalogo online, personalizacion del pedido (leche, azucar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN).</p>
+    <div class="tags"><span class="tag">PHP 8</span><span class="tag">MySQLi</span><span class="tag">JS Vanilla</span><span class="tag">Mercado Pago</span></div>
+    <div class="links">
+      <a class="plink" href="https://github.com/santinovargasdb/Virtual-Kiosk" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+      <a class="plink" href="https://virtual-kiosk.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
     </div>
   </div>
 
-  <div class="projects-more">
-    <div class="section-label reveal" data-es="Más proyectos" data-en="More projects" data-jp="その他のプロジェクト">Mas proyectos</div>
-    <div class="projects-grid">
-
-      <div class="project-card featured reveal">
-        <span class="project-card-badge" data-es="Proyecto Escolar · 2024" data-en="School Project · 2024" data-jp="学校プロジェクト · 2024">Proyecto Escolar &middot; 2024</span>
-        <div class="project-card-title" data-es="SMART HOME — DOMÓTICA" data-en="SMART HOME — AUTOMATION" data-jp="スマートホーム — 自動化">SMART HOME &mdash; DOMOTICA</div>
-        <p class="project-card-desc" data-es="Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 personas como PM y dev frontend." data-en="Scale model of a functional smart home with ESP32 connected via WiFi to a web interface. Real-time control of servomotors, LEDs and sensors. Led a team of 5 as PM and frontend developer." data-jp="WiFi接続ESP32とWebインターフェースを使ったスマートホームの縮尺模型。サーボモーター、LED、センサーをリアルタイム制御。PMとフロントエンド開発者として5人チームをリード。">Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lidere un equipo de 5 personas como PM y dev frontend.</p>
-        <div class="project-card-tags">
-          <span class="tag-light">ESP32</span>
-          <span class="tag-light">HTML / CSS</span>
-          <span class="tag-light">WiFi</span>
-          <span class="tag-light">IoT</span>
-          <span class="tag-light">Team Lead x5</span>
-          <span class="tag-light">XAMPP</span>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-card-badge" data-es="E-commerce" data-en="E-commerce" data-jp="Eコマース">E-commerce</span>
-        <div class="project-card-title">ARCEA</div>
-        <p class="project-card-desc" data-es="Tienda online completa para la marca Arcea: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph)." data-en="Full e-commerce store for the Arcea brand: product catalog, cart and Mercado Pago checkout, user authentication and technical SEO (sitemap, OpenGraph)." data-jp="Arceaブランド向けの本格的なEコマース。商品カタログ、カート、Mercado Pago決済、ユーザー認証、技術的SEO（sitemap・OpenGraph）。">Tienda online completa para la marca Arcea: catalogo de productos, carrito y checkout con Mercado Pago, autenticacion de usuarios y SEO tecnico (sitemap, OpenGraph).</p>
-        <div class="project-card-tags">
-          <span class="tag-light">Next.js 15</span>
-          <span class="tag-light">TypeScript</span>
-          <span class="tag-light">Supabase</span>
-          <span class="tag-light">Mercado Pago</span>
-          <span class="tag-light">shadcn/ui</span>
-        </div>
-        <div class="project-card-links">
-          <a href="https://github.com/santinovargasdb/Arcea" target="_blank" rel="noopener" class="project-card-link"><span class="ic">&#128025;</span>GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-card-badge" data-es="App Web · IA" data-en="Web App · AI" data-jp="Webアプリ · AI">App Web &middot; IA</span>
-        <div class="project-card-title" data-es="GUARDARROPAS VIRTUAL" data-en="VIRTUAL WARDROBE" data-jp="バーチャルワードローブ">GUARDARROPAS VIRTUAL</div>
-        <p class="project-card-desc" data-es="App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con la ayuda de un estilista por IA." data-en="App to digitize your wardrobe: upload your garments, organize them in a virtual closet and generate outfit combinations with the help of an AI stylist." data-jp="ワードローブをデジタル化するアプリ。服をアップロードして仮想クローゼットに整理し、AIスタイリストの助けでコーディネートを生成。">App para digitalizar tu guardarropa: subis tus prendas, las organizas en un closet virtual y generas combinaciones de outfits con la ayuda de un estilista por IA.</p>
-        <div class="project-card-tags">
-          <span class="tag-light">React</span>
-          <span class="tag-light">TypeScript</span>
-          <span class="tag-light">Vite</span>
-          <span class="tag-light">Supabase</span>
-          <span class="tag-light">IA</span>
-        </div>
-        <div class="project-card-links">
-          <a href="https://github.com/santinovargasdb/Guardarropas-Virtual" target="_blank" rel="noopener" class="project-card-link"><span class="ic">&#128025;</span>GitHub</a>
-          <a href="https://guardarropas-virtual.vercel.app" target="_blank" rel="noopener" class="project-card-link" data-es="Ver en vivo ↗" data-en="View live ↗" data-jp="デモを見る ↗">Ver en vivo &nearr;</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-card-badge" data-es="Python · NLP" data-en="Python · NLP" data-jp="Python · NLP">Python &middot; NLP</span>
-        <div class="project-card-title" data-es="INTELIGENCIA DE NOTICIAS" data-en="NEWS INTELLIGENCE" data-jp="ニュースインテリジェンス">INTELIGENCIA DE NOTICIAS</div>
-        <p class="project-card-desc" data-es="Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz visual en Streamlit." data-en="Modular Python system that pulls news via RSS, categorizes and summarizes them with NLP, translates international sources and generates executive reports. Visual interface in Streamlit." data-jp="RSSでニュースを取得し、NLPで分類・要約、海外ソースを翻訳して要約レポートを生成するPython製モジュラーシステム。Streamlitによるビジュアルインターフェース。">Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz visual en Streamlit.</p>
-        <div class="project-card-tags">
-          <span class="tag-light">Python</span>
-          <span class="tag-light">RSS</span>
-          <span class="tag-light">NLP</span>
-          <span class="tag-light">TextBlob</span>
-          <span class="tag-light">Streamlit</span>
-        </div>
-        <div class="project-card-links">
-          <a href="https://github.com/santinovargasdb/monitor-inteligencia-smata" target="_blank" rel="noopener" class="project-card-link"><span class="ic">&#128025;</span>GitHub</a>
-        </div>
-      </div>
-
+  <div class="proj-card reveal" data-cat="fullstack">
+    <span class="cat-tag">Full-stack · PWA</span>
+    <h4 data-es="DOJO LEDGER" data-en="DOJO LEDGER" data-jp="道場レジャー">DOJO LEDGER</h4>
+    <p class="desc" data-es="PWA mobile-first para trackear hábitos con una economía de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo." data-en="Mobile-first PWA to track habits with a gamified coin economy: one-tap 3-state control, optimistic updates and a live balance." data-jp="ゲーム化されたコイン経済で習慣を記録するモバイルファーストPWA：ワンタップの3状態管理、楽観的更新、リアルタイム残高。">PWA mobile-first para trackear habitos con una economia de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo.</p>
+    <div class="tags"><span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">Tailwind v4</span><span class="tag">Supabase</span></div>
+    <div class="links">
+      <a class="plink" href="https://github.com/santinovargasdb/habits-tracker-app" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+      <a class="plink" href="https://habits-tracker-app-ten.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
     </div>
+  </div>
+
+  <div class="proj-card reveal" data-cat="fullstack">
+    <span class="cat-tag">E-commerce</span>
+    <h4>ARCEA</h4>
+    <p class="desc" data-es="Tienda online completa: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph)." data-en="Full e-commerce store: product catalog, cart and Mercado Pago checkout, user authentication and technical SEO (sitemap, OpenGraph)." data-jp="本格的なEコマース：商品カタログ、カート、Mercado Pago決済、ユーザー認証、技術的SEO（sitemap・OpenGraph）。">Tienda online completa: catalogo de productos, carrito y checkout con Mercado Pago, autenticacion de usuarios y SEO tecnico (sitemap, OpenGraph).</p>
+    <div class="tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Mercado Pago</span><span class="tag">shadcn/ui</span></div>
+    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/arcea-app" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
+  </div>
+
+  <div class="proj-card reveal" data-cat="fullstack">
+    <span class="cat-tag">App Web · IA</span>
+    <h4 data-es="GUARDARROPAS VIRTUAL" data-en="VIRTUAL WARDROBE" data-jp="バーチャルワードローブ">GUARDARROPAS VIRTUAL</h4>
+    <p class="desc" data-es="App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con un estilista por IA." data-en="App to digitize your wardrobe: upload your garments, organize them in a virtual closet and generate outfit combinations with an AI stylist." data-jp="ワードローブをデジタル化するアプリ：服をアップロードして仮想クローゼットに整理し、AIスタイリストでコーデを生成。">App para digitalizar tu guardarropa: subis tus prendas, las organizas en un closet virtual y generas combinaciones de outfits con un estilista por IA.</p>
+    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Supabase</span><span class="tag">IA</span></div>
+    <div class="links">
+      <a class="plink" href="https://github.com/santinovargasdb/Guardarropas-Virtual" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+      <a class="plink" href="https://guardarropas-virtual.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
+    </div>
+  </div>
+
+  <div class="proj-card reveal" data-cat="data">
+    <span class="cat-tag">Data & IA · SMATA</span>
+    <h4 data-es="MONITOR DE MEDIOS" data-en="MEDIA MONITOR" data-jp="メディアモニター">MONITOR DE MEDIOS</h4>
+    <p class="desc" data-es="Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word." data-en="Real solution for a real company: media & social monitor for SMATA's Press Dept., with rule-based filtering, AI scoring (Gemini) and Word reports." data-jp="実企業向けの実ソリューション：SMATA広報部のメディア・SNSモニター。ルールベース filtering、AI（Gemini）スコアリング、Wordレポート。">Solucion real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">IA (Gemini)</span><span class="tag">Filtrado img/texto</span><span class="tag">Word</span></div>
+    <div class="links">
+      <a class="plink" href="https://github.com/santinovargasdb/social-media-filter-engine" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+      <a class="plink" href="https://filtro-redes-sociales-smt.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
+    </div>
+  </div>
+
+  <div class="proj-card reveal" data-cat="data">
+    <span class="cat-tag">Python · NLP</span>
+    <h4 data-es="INTELIGENCIA DE NOTICIAS" data-en="NEWS INTELLIGENCE" data-jp="ニュースインテリジェンス">INTELIGENCIA DE NOTICIAS</h4>
+    <p class="desc" data-es="Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit." data-en="Modular Python system that pulls news via RSS, categorizes and summarizes with NLP, translates international sources and generates executive reports. Streamlit interface." data-jp="RSSでニュースを取得し、NLPで分類・要約、海外ソースを翻訳して要約レポートを生成するPythonモジュラーシステム。Streamlit UI。">Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit.</p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">RSS</span><span class="tag">NLP</span><span class="tag">TextBlob</span><span class="tag">Streamlit</span></div>
+    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/monitor-inteligencia-smata" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
+  </div>
+
+</div>
   </div>
 </section>
 
