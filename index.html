@@ -120,22 +120,19 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 .identity-card-sub{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* SKILLS */
-.skills-layout{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.skill-col{background:var(--cream);padding:28px 24px}
-.skill-col-head{font-family:var(--font-display);font-size:22px;letter-spacing:1px;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid transparent}
+.skills-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.skill-col{padding:8px 28px;border-left:1.5px dotted var(--dot)}
+.skill-col:first-child{border-left:0;padding-left:0}
+.skill-col-head{font-family:var(--font-display);font-size:26px;letter-spacing:1px;color:var(--ink);margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid transparent;display:inline-block}
 .skill-col:nth-child(1) .skill-col-head{border-color:var(--fire)}
 .skill-col:nth-child(2) .skill-col-head{border-color:var(--yellow)}
 .skill-col:nth-child(3) .skill-col-head{border-color:var(--cyan)}
 .skill-col:nth-child(4) .skill-col-head{border-color:var(--fire2)}
-.skill-list{display:flex;flex-direction:column;gap:8px}
-.skill-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:500}
-.skill-item::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--muted);flex-shrink:0;opacity:0.4}
-.skill-item.strong{color:var(--ink)}
-.skill-item.strong::before{opacity:1;width:6px;height:6px}
-.skill-col:nth-child(1) .skill-item.strong::before{background:var(--fire)}
-.skill-col:nth-child(2) .skill-item.strong::before{background:var(--yellow)}
-.skill-col:nth-child(3) .skill-item.strong::before{background:var(--cyan)}
-.skill-col:nth-child(4) .skill-item.strong::before{background:var(--fire2)}
+.skill-list{display:flex;flex-direction:column;gap:10px}
+.skill-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);font-weight:500}
+.skill-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:0.4;flex-shrink:0}
+.skill-item.strong{align-self:flex-start;color:var(--ink);font-weight:600;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-pill);padding:5px 14px}
+.skill-item.strong::before{display:none}
 
 /* PROJECTS */
 .projects-layout{display:grid;grid-template-columns:2fr 1fr;gap:20px}
@@ -258,7 +255,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
   .about-stat .l{font-size:9px}
 
   /* SKILLS */
-  .skills-layout{grid-template-columns:1fr 1fr;gap:1px}
+  .skills-strip{grid-template-columns:1fr 1fr}
   .skill-col{padding:20px 16px}
   .skill-col-head{font-size:18px}
 
@@ -293,7 +290,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
   .nav-pill{display:none} /* keep logo + lang only on very small */
   .hero{padding:50px 16px 32px}
   .hero-name{font-size:clamp(52px,16vw,80px)}
-  .skills-layout{grid-template-columns:1fr}
+  .skills-strip{grid-template-columns:1fr}
   .about-stats{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion: reduce){
@@ -434,9 +431,10 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
 </section>
 
 <section id="skills">
+  <div class="container">
   <div class="section-label reveal" data-es="Capacidades" data-en="Capabilities" data-jp="スキル">Capacidades</div>
   <h2 class="section-title reveal" data-es="LO QUE<br>TRAIGO" data-en="WHAT I<br>BRING" data-jp="私が持つ<br>スキル">LO QUE<br>TRAIGO</h2>
-  <div class="skills-layout reveal">
+  <div class="skills-strip reveal">
     <div class="skill-col">
       <div class="skill-col-head">Web</div>
       <div class="skill-list">
@@ -477,6 +475,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
         <span class="skill-item" data-es="Finanzas" data-en="Finance" data-jp="財務">Finanzas</span>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
