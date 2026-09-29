@@ -119,14 +119,15 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 .identity-card-sub{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* SKILLS */
-.skills-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.skill-col{padding:8px 28px;border-left:1.5px dotted var(--dot)}
+.skills-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.skill-col{padding:8px 20px;border-left:1.5px dotted var(--dot)}
 .skill-col:first-child{border-left:0;padding-left:0}
 .skill-col-head{font-family:var(--font-display);font-size:26px;letter-spacing:1px;color:var(--ink);margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid transparent;display:inline-block}
 .skill-col:nth-child(1) .skill-col-head{border-color:var(--fire)}
 .skill-col:nth-child(2) .skill-col-head{border-color:var(--yellow)}
 .skill-col:nth-child(3) .skill-col-head{border-color:var(--cyan)}
 .skill-col:nth-child(4) .skill-col-head{border-color:var(--fire2)}
+.skill-col:nth-child(5) .skill-col-head{border-color:var(--cyan2)}
 .skill-list{display:flex;flex-direction:column;gap:10px}
 .skill-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);font-weight:500}
 .skill-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:0.4;flex-shrink:0}
@@ -391,6 +392,16 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
       </div>
     </div>
     <div class="skill-col">
+      <div class="skill-col-head">IA &amp; APIs</div>
+      <div class="skill-list">
+        <span class="skill-item strong" data-es="IA aplicada" data-en="Applied AI" data-jp="AI活用">IA aplicada</span>
+        <span class="skill-item strong">Claude Code</span>
+        <span class="skill-item">AI Studio</span>
+        <span class="skill-item">Ollama</span>
+        <span class="skill-item">OpenRouter</span>
+      </div>
+    </div>
+    <div class="skill-col">
       <div class="skill-col-head">Soft</div>
       <div class="skill-list">
         <span class="skill-item strong" data-es="Liderazgo" data-en="Leadership" data-jp="リーダーシップ">Liderazgo</span>
@@ -403,12 +414,11 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
     <div class="skill-col">
       <div class="skill-col-head">Extra</div>
       <div class="skill-list">
-        <span class="skill-item strong" data-es="IA aplicada" data-en="Applied AI" data-jp="AI活用">IA aplicada</span>
         <span class="skill-item strong">Mercado Pago</span>
-        <span class="skill-item strong" data-es="Inglés B2" data-en="English B2" data-jp="英語B2">Inglés B2</span>
         <span class="skill-item">Git</span>
         <span class="skill-item">Vercel</span>
-        <span class="skill-item" data-es="Japonés N5" data-en="Japanese N5" data-jp="日本語N5">Japonés N5</span>
+        <span class="skill-item">PWA</span>
+        <span class="skill-item" data-es="SEO técnico" data-en="Technical SEO" data-jp="技術的SEO">SEO técnico</span>
       </div>
     </div>
   </div>
