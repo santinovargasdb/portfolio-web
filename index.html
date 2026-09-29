@@ -659,36 +659,8 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
 
-// ── Project filter ────────────────────────────────────────────────
-const filterPills = document.querySelectorAll('.filter-pill');
-const projCards = document.querySelectorAll('.proj-card');
-filterPills.forEach(pill=>{
-  pill.addEventListener('click',()=>{
-    filterPills.forEach(p=>p.classList.remove('active'));
-    pill.classList.add('active');
-    const f = pill.getAttribute('data-filter');
-    projCards.forEach(card=>{
-      const show = f==='all' || card.getAttribute('data-cat')===f;
-      card.classList.toggle('hide',!show);
-    });
-  });
-});
-
-// ── Project count-up ──────────────────────────────────────────────
+// ── prefers-reduced-motion (compartido) ───────────────────────────
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-document.querySelectorAll('.proj-count').forEach(el=>{
-  const target = parseInt(el.getAttribute('data-count'),10)||0;
-  if(reduce){ el.textContent = target; return; }
-  const io = new IntersectionObserver((ents)=>{
-    ents.forEach(e=>{
-      if(!e.isIntersecting) return;
-      io.unobserve(el);
-      let n=0; const step=Math.max(1,Math.round(target/24));
-      const t=setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t);} el.textContent=n; },28);
-    });
-  },{threshold:1});
-  io.observe(el);
-});
 
 // ── Magnetic buttons ──────────────────────────────────────────────
 if(!reduce){
@@ -716,6 +688,91 @@ if(send){ send.addEventListener('click',()=>{
   const body=encodeURIComponent(from?('Mi email: '+from+'\n\n'):'');
   window.location.href=`mailto:Santivargasdb@gmail.com?subject=${subj}&body=${body}`;
 }); }
+
+// ── Barril de proyectos ──────────────────────────────────────────
+(function(){
+  const stage = document.getElementById('barrel');
+  if(!stage) return;
+  const barrel = stage.querySelector('.barrel');
+  const cards = [...barrel.querySelectorAll('.barrel-card')];
+  const N = cards.length; if(!N) return;
+  const STEP = 360 / N;
+  const mq = window.matchMedia('(max-width:900px)');
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let R = 460, angle = 0, target = 0, raf = null;
+
+  function computeR(){
+    const h = cards[0].offsetHeight || 320;
+    R = Math.round((h/2) / Math.tan((STEP/2)*Math.PI/180)) + 24;
+  }
+  function layout(){
+    computeR();
+    cards.forEach((c,i)=>{ c.style.transform = `rotateX(${i*STEP}deg) translateZ(${R}px)`; });
+  }
+  function render(){
+    barrel.style.transform = `translateZ(${-R}px) rotateX(${angle}deg)`;
+    const act = (((Math.round(-angle/STEP)) % N) + N) % N;
+    cards.forEach((c,i)=>{
+      let d = (((angle + i*STEP) % 360) + 360) % 360; if(d>180) d = 360 - d;
+      const isActive = i === act;
+      c.classList.toggle('active', isActive);
+      c.style.opacity = isActive ? '1' : String(Math.max(0.06, 1 - d/62) * 0.55);
+      c.style.pointerEvents = isActive ? 'auto' : 'none';
+    });
+  }
+  function animate(){
+    const diff = target - angle;
+    if(Math.abs(diff) < 0.06){ angle = target; render(); raf = null; return; }
+    angle += diff * 0.18; render();
+    raf = requestAnimationFrame(animate);
+  }
+  function go(){ if(rm){ angle = target; render(); return; } if(!raf) raf = requestAnimationFrame(animate); }
+  function snap(){ target = Math.round(target/STEP)*STEP; go(); }
+  function step(dir){ target = Math.round(target/STEP)*STEP + dir*STEP; go(); }
+
+  stage.addEventListener('wheel', e=>{
+    if(stage.classList.contains('flat')) return;
+    e.preventDefault();
+    target += (e.deltaY>0?1:-1) * STEP * 0.5;
+    clearTimeout(stage._snap); stage._snap = setTimeout(snap, 130); go();
+  }, {passive:false});
+
+  let dragging=false, lastY=0, moved=false;
+  stage.addEventListener('pointerdown', e=>{
+    if(stage.classList.contains('flat')) return;
+    dragging=true; moved=false; lastY=e.clientY; stage.classList.add('grabbing');
+    try{ stage.setPointerCapture(e.pointerId); }catch(_){}
+  });
+  stage.addEventListener('pointermove', e=>{
+    if(!dragging) return; const dy=e.clientY-lastY; if(Math.abs(dy)>2) moved=true; lastY=e.clientY;
+    target += dy*0.35; go();
+  });
+  function endDrag(){ if(!dragging) return; dragging=false; stage.classList.remove('grabbing'); snap(); }
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+  stage.addEventListener('click', e=>{ if(moved){ e.preventDefault(); moved=false; } }, true);
+
+  stage.querySelector('.barrel-up')?.addEventListener('click', ()=>step(-1));
+  stage.querySelector('.barrel-down')?.addEventListener('click', ()=>step(1));
+  stage.addEventListener('keydown', e=>{
+    if(e.key==='ArrowUp'){ e.preventDefault(); step(-1); }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); step(1); }
+  });
+
+  function setMode(){
+    if(mq.matches || rm){
+      stage.classList.add('flat');
+      barrel.style.transform='';
+      cards.forEach(c=>{ c.style.transform=''; c.style.opacity=''; c.style.pointerEvents=''; });
+    } else {
+      stage.classList.remove('flat'); layout(); render();
+    }
+  }
+  setMode();
+  (mq.addEventListener ? mq.addEventListener('change', setMode) : mq.addListener(setMode));
+  window.addEventListener('resize', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
+})();
 </script>
 </body>
 </html>
