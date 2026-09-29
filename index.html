@@ -94,30 +94,29 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 
 /* SOBRE MÍ */
-.about-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
-.about-text p{color:var(--muted);line-height:1.85;margin-bottom:16px;font-size:16px}
-.about-text strong{color:var(--ink);font-weight:500}
+.about-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:16px;font-size:16px}
+.about-text strong{color:var(--ink);font-weight:600}
 .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.pill{font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;border:1.5px solid var(--border);color:var(--ink)}
+.pill{font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--r-pill);border:1.5px solid var(--border);color:var(--ink);background:var(--surface)}
 .pill.fire{background:var(--fire);color:#fff;border-color:var(--fire)}
 .pill.yellow{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
 .pill.cyan{background:var(--cyan);color:var(--ink);border-color:var(--cyan)}
 .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
-.about-stat{border-radius:10px;padding:18px 16px;text-align:center}
+.about-stat{border-radius:var(--r-sm);padding:20px 16px;text-align:center}
 .about-stat.fire{background:var(--fire);color:#fff}
 .about-stat.yellow{background:var(--yellow);color:var(--ink)}
 .about-stat.cyan{background:var(--cyan);color:var(--ink)}
-.about-stat .n{font-family:var(--font-display);font-size:36px;letter-spacing:1px;line-height:1}
-.about-stat .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;opacity:0.7;margin-top:4px}
-
+.about-stat .n{font-family:var(--font-display);font-size:40px;letter-spacing:1px;line-height:1}
+.about-stat .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;opacity:0.85;margin-top:6px}
 .about-right{display:flex;flex-direction:column;gap:12px}
-.identity-card{background:var(--cream2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:16px;transition:transform 0.2s;border-left:3px solid transparent}
-.identity-card:hover{transform:translateX(4px)}
+.identity-card{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid transparent;border-radius:var(--r-sm);padding:18px 22px;display:flex;align-items:center;gap:16px;transition:transform 0.2s,border-color 0.2s}
+.identity-card:hover{transform:translateX(6px)}
 .identity-card.c-fire{border-left-color:var(--fire)}
 .identity-card.c-yellow{border-left-color:var(--yellow)}
 .identity-card.c-cyan{border-left-color:var(--cyan)}
-.identity-card-icon{font-size:22px;width:28px;text-align:center;flex-shrink:0}
-.identity-card-title{font-weight:700;font-size:14px;color:var(--ink)}
+.identity-card-icon{font-size:24px;width:30px;text-align:center;flex-shrink:0}
+.identity-card-title{font-weight:700;font-size:15px;color:var(--ink)}
 .identity-card-sub{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* SKILLS */
@@ -384,6 +383,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
 </div>
 
 <section id="sobre-mi">
+  <div class="container">
   <div class="section-label reveal" data-es="Quien soy" data-en="Who I am" data-jp="自己紹介">Quien soy</div>
   <h2 class="section-title reveal" data-es="MAS QUE<br>UN CV" data-en="MORE THAN<br>A RESUME" data-jp="履歴書以上<br>のもの">MAS QUE<br>UN CV</h2>
   <div class="about-layout">
@@ -429,6 +429,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
         <div><div class="identity-card-title" data-es="Proyecto IoT Real" data-en="Real IoT Project" data-jp="実際のIoTプロジェクト">Proyecto IoT Real</div><div class="identity-card-sub" data-es="Smart home · PM + Frontend · Equipo x5" data-en="Smart home · PM + Frontend · Team x5" data-jp="スマートホーム・PM+フロントエンド・5人チーム">Smart home &middot; PM + Frontend &middot; Equipo x5</div></div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
