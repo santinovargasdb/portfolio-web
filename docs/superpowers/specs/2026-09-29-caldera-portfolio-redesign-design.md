@@ -19,6 +19,10 @@ y **reorganizar el layout** al estilo Caldera.
 3. **Alcance:** rediseño de layout (se puede reorganizar/mover contenido).
 4. **Foto del hero:** la foto va dentro del bloque halftone con tratamiento duotono +
    degradado cyan→fuego + puntos en una esquina.
+5. **Proyectos = sección estrella.** Se traen los proyectos reales del GitHub; se muestran los
+   **9 "serios"** (afuera Botonesmata y este portfolio). **AlToque** insignia, **Smart Home** destacado.
+6. **Sin franja de stats grande** con contadores; se conservan las stats chicas de "Sobre mí".
+7. **Nav con iconos de redes** (LinkedIn/GitHub) + **contacto oscuro con "input" tipo píldora** (mailto).
 
 ## Restricciones (no cambian)
 
@@ -80,22 +84,19 @@ Regla: **jerarquía por color, no por sombra**. Canvas (más oscuro) → surface
 3. **Ticker** — Se conserva la marquesina (ya es muy on-brand). Re-estilo: barra `--ink`,
    items Bebas, dots de color. Bordes punteados arriba/abajo opcionales.
 
-4. **Franja de stats (NUEVA — stat cards firma de Caldera)** — Fila de 4 cards de 40px, una
-   ember y las otras en surface/cyan/yellow, con **números gigantes Bebas que suben con contador**
-   al entrar en viewport. Contenido honesto y contable:
-   - `3` Idiomas · `11` Proyectos · `5` Personas lideradas · `12` Años en artes marciales.
-   (Copys finales ajustables; los números salen del contenido real — 11 proyectos en el catálogo.)
-
-5. **Sobre mí** — Título de sección gigante. Texto editorial (DM Sans 500). Las identity cards
+4. **Sobre mí** — Título de sección gigante. Texto editorial (DM Sans 500). Las identity cards
    pasan a **cards planas limestone 40px** con acento de color (borde/pill), sin sombra.
-   `about-pills` → píldoras sulfur/ember/cyan. Hover-lift por transform.
+   `about-pills` → píldoras sulfur/ember/cyan. Se conservan las **stats chicas** actuales
+   (cinturón negro · 3 idiomas · MMA) re-estiladas planas. Hover-lift por transform.
+   *(Decisión: NO se agrega franja de stats grande con contadores.)*
 
-6. **Skills** — Tira de 4 columnas separadas por **divisores punteados** (en vez de la grilla con
+5. **Skills** — Tira de 4 columnas separadas por **divisores punteados** (en vez de la grilla con
    bordes). Encabezados en Bebas con subrayado de color. Skills "fuertes" como **pills**; el resto
    como items con dot.
 
-7. **Proyectos (SECCIÓN ESTRELLA)** — el foco del sitio. Se traen **todos** los proyectos
-   destacados desde el GitHub real (`santinovargasdb`). Layout en **3 tiers** para dar énfasis:
+6. **Proyectos (SECCIÓN ESTRELLA)** — el foco del sitio. Se traen los **9 proyectos "serios"**
+   desde el GitHub real (`santinovargasdb`) — se excluyen Botonesmata (fun) y este mismo portfolio.
+   Layout en **3 tiers** para dar énfasis:
    - **Tier 1 — Insignia:** **AlToque** en card grande con **halftone cyan→fire** (equivalente al
      "plasma hero card" de Caldera). Título Bebas grande, stack completo, links GitHub + Live.
    - **Tier 2 — Destacado:** **Smart Home / Domótica ESP32** en card oscura (obsidiana) full-width
@@ -104,14 +105,14 @@ Regla: **jerarquía por color, no por sombra**. Canvas (más oscuro) → surface
      que **filtran el grid con animación** (FLIP/transform + stagger). Cada card (limestone 40px, plana):
      tag de categoría (píldora amarilla) · título Bebas · descripción 1–2 líneas · tags de tech ·
      indicador **"En vivo"** (dot) + links GitHub / Demo · hover-lift plano.
-   - Contador "N proyectos" arriba de la sección (sube con la animación de la franja de stats).
+   - Contador "N proyectos" arriba de la sección (único contador que sube al entrar en viewport).
    - Todo con hover-lift plano (transform + color), sin sombra.
 
-8. **Contacto** — Sección **oscura (obsidiana)**, título gigante ("TRABAJAMOS JUNTOS?"),
-   subtítulo, un **campo tipo píldora** (radio 100px, borde chalk) con botón ember (mailto),
-   y los contact links como **píldoras/cards planas** con iconos.
+7. **Contacto** — Sección **oscura (obsidiana)**, título gigante ("TRABAJAMOS JUNTOS?"),
+   subtítulo, un **campo tipo píldora** (radio 100px, borde chalk) con botón ember que dispara
+   `mailto`, y los contact links (LinkedIn/Email/GitHub) como **píldoras/cards planas** con iconos.
 
-9. **Footer** — Plano, **divisor punteado** superior, © y los 3 dots de color.
+8. **Footer** — Plano, **divisor punteado** superior, © y los 3 dots de color.
 
 ## Inventario de animaciones ("con vida")
 
@@ -120,7 +121,7 @@ Todas condicionadas a `prefers-reduced-motion: no-preference`.
 1. **Hero reveal escalonado** — nombre por líneas, luego tag/rol/desc/CTAs con delay incremental.
 2. **Halftone vivo** — patrón de puntos (radial-gradients) con drift/pulse sutil + shift lento del degradado.
 3. **Botones magnéticos** — el botón se desplaza levemente hacia el cursor en hover (JS).
-4. **Contadores** — los números de la franja de stats suben desde 0 al entrar en viewport (IntersectionObserver).
+4. **Contador de proyectos** — el "N proyectos" del header de Proyectos sube desde 0 al entrar en viewport (IntersectionObserver). (No hay franja de stats.)
 5. **Hover-lift en cards** — `translateY(-4px)` + cambio de borde/color/escala; **nunca sombra**.
 6. **Scroll reveal** — se mantiene el IntersectionObserver actual, con stagger refinado.
 7. **Reveal de títulos** — títulos de sección con slide/clip-wipe al entrar.
@@ -134,8 +135,9 @@ Todas condicionadas a `prefers-reduced-motion: no-preference`.
 scroll-reveal, cursor glow, fuentes.
 
 **Cambia:** paleta reasignada a roles Caldera, radios (→40px/pill), eliminación de sombras,
-contenedor con max-width, tipografía a escala arquitectónica, nav en píldora, hero con bloque
-halftone, franja de stats nueva, restyle de todas las cards, sección de contacto oscura,
+contenedor con max-width, tipografía a escala arquitectónica, nav en píldora (con iconos de
+redes), hero con bloque halftone, **sección de proyectos como estrella (3 tiers + grid filtrable)**,
+restyle de todas las cards, sección de contacto oscura,
 divisores punteados, y las animaciones nuevas del inventario.
 
 ## No-goals (YAGNI)
@@ -167,6 +169,9 @@ escribe en implementación; acá va el dato base. Tier: 1=insignia, 2=destacado,
 
 Notas:
 - El repo `santinovargasdb` (perfil README) se omite.
+- **Se muestran 9 proyectos "serios" (#1–#9).** Se **excluyen** del sitio: #10 Botonesmata (fun)
+  y #11 este portfolio. Quedan en el catálogo solo como referencia.
+- Grid filtrable = #3–#9 (AlToque es tier 1, Smart Home tier 2).
 - Categorías del filtro: `Todos · Full-stack · IoT · Data & IA · Web`.
 - Los links de GitHub son `github.com/santinovargasdb/<repo>`.
 
