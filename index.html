@@ -7,13 +7,23 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#f5f0e8;--cream2:#ede6d6;--cream3:#e4dbc8;
-  --ink:#1a1612;--muted:#7a6f60;--border:rgba(26,22,18,0.1);
+  --canvas:#ede6d6;--surface:#f5f0e8;--surface-2:#e4dbc8;
+  --ink:#1a1612;--muted:#7a6f60;--chalk:#ffffff;
   --fire:#e84e1b;--fire2:#ff7a3d;--yellow:#f5c800;
   --cyan:#00c2cc;--cyan2:#5ee8f0;
+  --border:rgba(26,22,18,0.12);--dot:rgba(26,22,18,0.32);
   --font-display:"Bebas Neue",sans-serif;--font-body:"DM Sans",sans-serif;
+  --r-card:40px;--r-pill:800px;--r-input:100px;--r-sm:16px;
+  --maxw:1280px;--gap-sec:80px;--pad-card:40px;
 }
-body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.6;overflow-x:hidden}
+body{background:var(--canvas);color:var(--ink);font-family:var(--font-body);font-weight:500;font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;width:100%}
+/* dotted divider utility */
+.dotted{border:0;border-top:1.5px dotted var(--dot)}
+/* halftone dot pattern (orange dots) */
+.halftone{background-image:radial-gradient(var(--fire) 22%,transparent 23%);background-size:14px 14px}
+h1,h2,h3,.display{font-family:var(--font-display);letter-spacing:0.02em;line-height:0.94;font-weight:400}
+a{color:inherit}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(245,240,232,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
@@ -307,6 +317,9 @@ footer{background:var(--ink);color:rgba(245,240,232,0.45);padding:22px 40px;disp
   .hero-name{font-size:clamp(52px,16vw,80px)}
   .skills-layout{grid-template-columns:1fr}
   .about-stats{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
