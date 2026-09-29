@@ -563,6 +563,12 @@ function applyLang(lang) {
   const htmlLang = { ES: 'es', EN: 'en', JP: 'ja' };
   document.documentElement.lang = htmlLang[lang];
 
+  // Placeholders i18n
+  document.querySelectorAll('[data-es-ph],[data-en-ph],[data-jp-ph]').forEach(el=>{
+    const ph = el.getAttribute('data-'+key+'-ph');
+    if(ph!==null) el.setAttribute('placeholder',ph);
+  });
+
   // Highlight active button
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.textContent.trim() === lang);
@@ -574,6 +580,8 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     applyLang(btn.textContent.trim());
   });
 });
+
+applyLang(currentLang);
 
 // ── Cursor glow ───────────────────────────────────────────────────
 const glow = document.getElementById('glow');
@@ -590,6 +598,64 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+
+// ── Project filter ────────────────────────────────────────────────
+const filterPills = document.querySelectorAll('.filter-pill');
+const projCards = document.querySelectorAll('.proj-card');
+filterPills.forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    filterPills.forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    const f = pill.getAttribute('data-filter');
+    projCards.forEach(card=>{
+      const show = f==='all' || card.getAttribute('data-cat')===f;
+      card.classList.toggle('hide',!show);
+    });
+  });
+});
+
+// ── Project count-up ──────────────────────────────────────────────
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.proj-count').forEach(el=>{
+  const target = parseInt(el.getAttribute('data-count'),10)||0;
+  if(reduce){ el.textContent = target; return; }
+  const io = new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{
+      if(!e.isIntersecting) return;
+      io.unobserve(el);
+      let n=0; const step=Math.max(1,Math.round(target/24));
+      const t=setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t);} el.textContent=n; },28);
+    });
+  },{threshold:1});
+  io.observe(el);
+});
+
+// ── Magnetic buttons ──────────────────────────────────────────────
+if(!reduce){
+  document.querySelectorAll('.mag').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const mx=e.clientX-(r.left+r.width/2), my=e.clientY-(r.top+r.height/2);
+      el.style.transform=`translate(${mx*0.15}px,${my*0.25}px)`;
+    });
+    el.addEventListener('mouseleave',()=>{ el.style.transform=''; });
+  });
+}
+
+// ── Halftone parallax ─────────────────────────────────────────────
+if(!reduce){
+  const ph=document.querySelector('.photo-halftone');
+  if(ph){ window.addEventListener('scroll',()=>{ const y=window.scrollY; if(y<900) ph.style.transform=`translateY(${y*0.04}px)`; },{passive:true}); }
+}
+
+// ── Contact mailto ────────────────────────────────────────────────
+const send=document.getElementById('contactSend'), email=document.getElementById('contactEmail');
+if(send){ send.addEventListener('click',()=>{
+  const from=(email && email.value.trim())?email.value.trim():'';
+  const subj=encodeURIComponent('Contacto desde el portfolio');
+  const body=encodeURIComponent(from?('Mi email: '+from+'\n\n'):'');
+  window.location.href=`mailto:Santivargasdb@gmail.com?subject=${subj}&body=${body}`;
+}); }
 </script>
 </body>
 </html>
