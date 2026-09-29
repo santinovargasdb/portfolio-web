@@ -7,8 +7,8 @@ Portfolio personal con rediseño editorial "Caldera", desarrollado con HTML, CSS
 ## Características
 - Rediseño editorial cálido estilo "Caldera": tipografía display gigante, superficies planas sin sombras, esquinas redondeadas, controles tipo píldora y patrón halftone.
 - Soporte multiidioma: Español / English / 日本語.
-- Sección de proyectos con 9 proyectos reales y filtro por categoría (Todos / Full-stack / Data & IA).
-- Animaciones: halftone animado, contador de proyectos, botones magnéticos, parallax sutil y scroll reveal.
+- Sección de proyectos como **carrusel vertical 3D tipo "barril de revólver"**: 9 cards uniformes (mitad texto, mitad screenshot o cover on-brand) con botón grande a la demo en vivo o a GitHub. Gira con scroll, arrastrando o con las flechas.
+- Animaciones: halftone animado, botones magnéticos, parallax sutil y scroll reveal.
 - Accesibilidad: respeta `prefers-reduced-motion`.
 - Diseño responsivo (desktop / tablet / mobile).
 
