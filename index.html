@@ -414,107 +414,166 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
   <div class="section-label reveal" data-es="Trabajo" data-en="Work" data-jp="実績">Trabajo</div>
   <h2 class="section-title reveal" data-es="PROYECTOS" data-en="PROJECTS" data-jp="プロジェクト">PROYECTOS</h2>
 
-<!-- TIER 1: insignia -->
-<div class="proj-hero reveal">
-  <span class="badge" data-es="Proyecto insignia · Full-stack" data-en="Flagship · Full-stack" data-jp="代表作 · フルスタック">Proyecto insignia &middot; Full-stack</span>
-  <h3>ALTOQUE</h3>
-  <p data-es="Marketplace que conecta personas con profesionales de oficios verificados —plomeros, electricistas, cerrajeros— para urgencias y trabajos agendados. Matching por geolocalización (PostGIS), pago híbrido con Mercado Pago e instalable como PWA." data-en="Marketplace connecting people with verified trade professionals —plumbers, electricians, locksmiths— for emergencies and scheduled jobs. Geolocation matching (PostGIS), hybrid Mercado Pago payments and installable as a PWA." data-jp="認証済みの職人（配管工・電気工・鍵屋）とユーザーをつなぐマーケットプレイス。位置情報マッチング（PostGIS）、Mercado Pagoハイブリッド決済、PWA対応。">Marketplace que conecta personas con profesionales de oficios verificados &mdash;plomeros, electricistas, cerrajeros&mdash; para urgencias y trabajos agendados. Matching por geolocalizacion (PostGIS), pago hibrido con Mercado Pago e instalable como PWA.</p>
-  <div class="tags">
-    <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostGIS</span><span class="tag">Mercado Pago</span><span class="tag">Tailwind v4</span><span class="tag">PWA</span>
+<div class="barrel-stage" id="barrel" tabindex="0" aria-label="Carrusel de proyectos">
+  <div class="barrel">
+
+    <!-- 1. AlToque (screenshot) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Full-stack</span>
+        <h3 class="bcard-title">ALTOQUE</h3>
+        <p class="bcard-desc" data-es="Marketplace que conecta personas con profesionales de oficios verificados —plomeros, electricistas, cerrajeros— para urgencias y trabajos agendados. Matching por geolocalización (PostGIS), pago híbrido con Mercado Pago e instalable como PWA." data-en="Marketplace connecting people with verified trade professionals —plumbers, electricians, locksmiths— for emergencies and scheduled jobs. Geolocation matching (PostGIS), hybrid Mercado Pago payments and installable as a PWA." data-jp="認証済みの職人（配管工・電気工・鍵屋）とユーザーをつなぐマーケットプレイス。位置情報マッチング（PostGIS）、Mercado Pagoハイブリッド決済、PWA対応。">Marketplace que conecta personas con profesionales de oficios verificados —plomeros, electricistas, cerrajeros— para urgencias y trabajos agendados. Matching por geolocalización (PostGIS), pago híbrido con Mercado Pago e instalable como PWA.</p>
+        <div class="bcard-tags"><span class="btag">Next.js 15</span><span class="btag">TypeScript</span><span class="btag">Supabase</span><span class="btag">PostGIS</span><span class="btag">Mercado Pago</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://al-toque-eta.vercel.app" target="_blank" rel="noopener" data-es="Ver en vivo →" data-en="View live →" data-jp="デモを見る →">Ver en vivo →</a>
+          <a class="bcard-ghost" href="https://github.com/santinovargasdb/AlToque" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://al-toque-eta.vercel.app" target="_blank" rel="noopener" aria-label="Ver AlToque en vivo">
+        <span class="bcard-live" data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span>
+        <img data-shot="altoque" src="" loading="lazy" alt="Captura de AlToque">
+      </a>
+    </article>
+
+    <!-- 2. Dojo Ledger (screenshot) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Full-stack · PWA</span>
+        <h3 class="bcard-title">DOJO LEDGER</h3>
+        <p class="bcard-desc" data-es="PWA mobile-first para trackear hábitos con una economía de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo." data-en="Mobile-first PWA to track habits with a gamified coin economy: one-tap 3-state control, optimistic updates and a live balance." data-jp="ゲーム化されたコイン経済で習慣を記録するモバイルファーストPWA：ワンタップの3状態管理、楽観的更新、リアルタイム残高。">PWA mobile-first para trackear hábitos con una economía de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo.</p>
+        <div class="bcard-tags"><span class="btag">Next.js 16</span><span class="btag">React 19</span><span class="btag">Tailwind v4</span><span class="btag">Supabase</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://habits-tracker-app-ten.vercel.app" target="_blank" rel="noopener" data-es="Ver en vivo →" data-en="View live →" data-jp="デモを見る →">Ver en vivo →</a>
+          <a class="bcard-ghost" href="https://github.com/santinovargasdb/habits-tracker-app" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://habits-tracker-app-ten.vercel.app" target="_blank" rel="noopener" aria-label="Ver Dojo Ledger en vivo">
+        <span class="bcard-live" data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span>
+        <img data-shot="dojo" src="" loading="lazy" alt="Captura de Dojo Ledger">
+      </a>
+    </article>
+
+    <!-- 3. Guardarropas Virtual (screenshot) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">App Web · IA</span>
+        <h3 class="bcard-title" data-es="GUARDARROPAS VIRTUAL" data-en="VIRTUAL WARDROBE" data-jp="バーチャルワードローブ">GUARDARROPAS VIRTUAL</h3>
+        <p class="bcard-desc" data-es="App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con un estilista por IA." data-en="App to digitize your wardrobe: upload your garments, organize them in a virtual closet and generate outfit combinations with an AI stylist." data-jp="ワードローブをデジタル化するアプリ：服をアップロードして仮想クローゼットに整理し、AIスタイリストでコーデを生成。">App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con un estilista por IA.</p>
+        <div class="bcard-tags"><span class="btag">React</span><span class="btag">TypeScript</span><span class="btag">Vite</span><span class="btag">Supabase</span><span class="btag">IA</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://guardarropas-virtual.vercel.app" target="_blank" rel="noopener" data-es="Ver en vivo →" data-en="View live →" data-jp="デモを見る →">Ver en vivo →</a>
+          <a class="bcard-ghost" href="https://github.com/santinovargasdb/Guardarropas-Virtual" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://guardarropas-virtual.vercel.app" target="_blank" rel="noopener" aria-label="Ver Guardarropas Virtual en vivo">
+        <span class="bcard-live" data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span>
+        <img data-shot="guardarropas" src="" loading="lazy" alt="Captura de Guardarropas Virtual">
+      </a>
+    </article>
+
+    <!-- 4. LogiSwift (cover) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Full-stack · PWA</span>
+        <h3 class="bcard-title">LOGISWIFT</h3>
+        <p class="bcard-desc" data-es="PWA mobile-first de logística urbana para un repartidor: hoja de ruta del día, registro de ventas al instante, stock del vehículo y cierre de jornada. Pensada para usarse con una mano." data-en="Mobile-first urban-logistics PWA for a delivery driver: daily route sheet, on-the-spot sales logging, vehicle stock and end-of-day close. Built to be used one-handed." data-jp="配達員向けモバイルファースト物流PWA：日次ルート、その場での売上記録、車両在庫、日次締め。片手操作を想定。">PWA mobile-first de logística urbana para un repartidor: hoja de ruta del día, registro de ventas al instante, stock del vehículo y cierre de jornada. Pensada para usarse con una mano.</p>
+        <div class="bcard-tags"><span class="btag">React 19</span><span class="btag">TypeScript</span><span class="btag">Vite</span><span class="btag">Tailwind v4</span><span class="btag">Supabase</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://github.com/santinovargasdb/LogiSwift" target="_blank" rel="noopener" data-es="Ver en GitHub →" data-en="View on GitHub →" data-jp="GitHubで見る →">Ver en GitHub →</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://github.com/santinovargasdb/LogiSwift" target="_blank" rel="noopener" aria-label="Ver LogiSwift en GitHub">
+        <div class="bcard-cover"><div class="cv-name">LOGI<br>SWIFT</div><div class="cv-badges"><span>React 19</span><span>PWA</span><span>Supabase</span></div></div>
+      </a>
+    </article>
+
+    <!-- 5. Arcea (cover) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">E-commerce</span>
+        <h3 class="bcard-title">ARCEA</h3>
+        <p class="bcard-desc" data-es="Tienda online completa: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph)." data-en="Full e-commerce store: product catalog, cart and Mercado Pago checkout, user authentication and technical SEO (sitemap, OpenGraph)." data-jp="本格的なEコマース：商品カタログ、カート、Mercado Pago決済、ユーザー認証、技術的SEO（sitemap・OpenGraph）。">Tienda online completa: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph).</p>
+        <div class="bcard-tags"><span class="btag">Next.js 15</span><span class="btag">TypeScript</span><span class="btag">Supabase</span><span class="btag">Mercado Pago</span><span class="btag">shadcn/ui</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://github.com/santinovargasdb/arcea-app" target="_blank" rel="noopener" data-es="Ver en GitHub →" data-en="View on GitHub →" data-jp="GitHubで見る →">Ver en GitHub →</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://github.com/santinovargasdb/arcea-app" target="_blank" rel="noopener" aria-label="Ver Arcea en GitHub">
+        <div class="bcard-cover"><div class="cv-name">ARCEA</div><div class="cv-badges"><span>Next.js 15</span><span>Supabase</span><span>Mercado Pago</span></div></div>
+      </a>
+    </article>
+
+    <!-- 6. Octava Café (cover — deploy caído) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Full-stack · Pagos</span>
+        <h3 class="bcard-title" data-es="OCTAVA CAFÉ" data-en="OCTAVA CAFÉ" data-jp="オクタバ カフェ">OCTAVA CAFÉ</h3>
+        <p class="bcard-desc" data-es="Cafetería de especialidad Take Away: catálogo online, personalización del pedido (leche, azúcar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN)." data-en="Specialty coffee shop, take-away only: online catalog, order customization (milk, sugar, gluten-free), pickup time and Mercado Pago payment (Checkout Pro + IPN webhooks)." data-jp="スペシャルティコーヒーのテイクアウト専門店：オンラインカタログ、注文カスタマイズ（ミルク・砂糖・グルテンフリー）、受取時間、Mercado Pago決済（Checkout Pro + IPN）。">Cafetería de especialidad Take Away: catálogo online, personalización del pedido (leche, azúcar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN).</p>
+        <div class="bcard-tags"><span class="btag">PHP 8</span><span class="btag">MySQLi</span><span class="btag">JS Vanilla</span><span class="btag">Mercado Pago</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://github.com/santinovargasdb/Virtual-Kiosk" target="_blank" rel="noopener" data-es="Ver en GitHub →" data-en="View on GitHub →" data-jp="GitHubで見る →">Ver en GitHub →</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://github.com/santinovargasdb/Virtual-Kiosk" target="_blank" rel="noopener" aria-label="Ver Octava Café en GitHub">
+        <div class="bcard-cover"><div class="cv-name">OCTAVA<br>CAFÉ</div><div class="cv-badges"><span>PHP 8</span><span>MySQLi</span><span>Mercado Pago</span></div></div>
+      </a>
+    </article>
+
+    <!-- 7. Monitor de Medios (cover — deploy caído) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Data &amp; IA · SMATA</span>
+        <h3 class="bcard-title" data-es="MONITOR DE MEDIOS" data-en="MEDIA MONITOR" data-jp="メディアモニター">MONITOR DE MEDIOS</h3>
+        <p class="bcard-desc" data-es="Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word." data-en="Real solution for a real company: media &amp; social monitor for SMATA's Press Dept., with rule-based filtering, AI scoring (Gemini) and Word reports." data-jp="実企業向けの実ソリューション：SMATA広報部のメディア・SNSモニター。ルールベースのフィルタリング、AI（Gemini）スコアリング、Wordレポート。">Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word.</p>
+        <div class="bcard-tags"><span class="btag">Python</span><span class="btag">IA (Gemini)</span><span class="btag">Filtrado img/texto</span><span class="btag">Word</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://github.com/santinovargasdb/social-media-filter-engine" target="_blank" rel="noopener" data-es="Ver en GitHub →" data-en="View on GitHub →" data-jp="GitHubで見る →">Ver en GitHub →</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://github.com/santinovargasdb/social-media-filter-engine" target="_blank" rel="noopener" aria-label="Ver Monitor de Medios en GitHub">
+        <div class="bcard-cover"><div class="cv-name" data-es="MONITOR<br>DE MEDIOS" data-en="MEDIA<br>MONITOR" data-jp="メディア<br>モニター">MONITOR<br>DE MEDIOS</div><div class="cv-badges"><span>Python</span><span>IA · Gemini</span><span>SMATA</span></div></div>
+      </a>
+    </article>
+
+    <!-- 8. Inteligencia de Noticias (cover) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">Python · NLP</span>
+        <h3 class="bcard-title" data-es="INTELIGENCIA DE NOTICIAS" data-en="NEWS INTELLIGENCE" data-jp="ニュースインテリジェンス">INTELIGENCIA DE NOTICIAS</h3>
+        <p class="bcard-desc" data-es="Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit." data-en="Modular Python system that pulls news via RSS, categorizes and summarizes with NLP, translates international sources and generates executive reports. Streamlit interface." data-jp="RSSでニュースを取得し、NLPで分類・要約、海外ソースを翻訳して要約レポートを生成するPythonモジュラーシステム。Streamlit UI。">Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit.</p>
+        <div class="bcard-tags"><span class="btag">Python</span><span class="btag">RSS</span><span class="btag">NLP</span><span class="btag">TextBlob</span><span class="btag">Streamlit</span></div>
+        <div class="bcard-actions">
+          <a class="bcard-cta" href="https://github.com/santinovargasdb/monitor-inteligencia-smata" target="_blank" rel="noopener" data-es="Ver en GitHub →" data-en="View on GitHub →" data-jp="GitHubで見る →">Ver en GitHub →</a>
+        </div>
+      </div>
+      <a class="bcard-visual" href="https://github.com/santinovargasdb/monitor-inteligencia-smata" target="_blank" rel="noopener" aria-label="Ver Inteligencia de Noticias en GitHub">
+        <div class="bcard-cover"><div class="cv-name" data-es="INTEL. DE<br>NOTICIAS" data-en="NEWS<br>INTEL." data-jp="ニュース<br>解析">INTEL. DE<br>NOTICIAS</div><div class="cv-badges"><span>Python</span><span>NLP</span><span>Streamlit</span></div></div>
+      </a>
+    </article>
+
+    <!-- 9. Smart Home (cover — sin link) -->
+    <article class="barrel-card">
+      <div class="bcard-text">
+        <span class="bcard-cat">IoT</span>
+        <h3 class="bcard-title" data-es="SMART HOME — DOMÓTICA" data-en="SMART HOME — AUTOMATION" data-jp="スマートホーム — 自動化">SMART HOME — DOMÓTICA</h3>
+        <p class="bcard-desc" data-es="Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 personas como PM y dev frontend." data-en="Scale model of a functional smart home with ESP32 connected via WiFi to a web interface. Real-time control of servomotors, LEDs and sensors. Led a team of 5 as PM and frontend developer." data-jp="WiFi接続ESP32とWebインターフェースによるスマートホームの縮尺模型。サーボ・LED・センサーをリアルタイム制御。PMとフロント開発者として5人チームをリード。">Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 personas como PM y dev frontend.</p>
+        <div class="bcard-tags"><span class="btag">ESP32</span><span class="btag">WiFi</span><span class="btag">IoT</span><span class="btag">Team Lead x5</span><span class="btag">XAMPP</span></div>
+        <div class="bcard-actions">
+          <span class="bcard-note" data-es="Proyecto escolar · 2024" data-en="School project · 2024" data-jp="学校プロジェクト · 2024">Proyecto escolar · 2024</span>
+        </div>
+      </div>
+      <div class="bcard-visual">
+        <div class="bcard-cover"><div class="cv-name" data-es="SMART<br>HOME" data-en="SMART<br>HOME" data-jp="スマート<br>ホーム">SMART<br>HOME</div><div class="cv-badges"><span>ESP32</span><span>IoT</span><span>Team Lead x5</span></div></div>
+      </div>
+    </article>
+
   </div>
-  <div class="links">
-    <a class="plink" href="https://github.com/santinovargasdb/AlToque" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
-    <a class="plink" href="https://al-toque-eta.vercel.app" target="_blank" rel="noopener" data-es="Ver en vivo ↗" data-en="View live ↗" data-jp="デモを見る ↗">Ver en vivo &nearr;</a>
+  <div class="barrel-nav">
+    <button class="barrel-up" aria-label="Anterior">&#9650;</button>
+    <button class="barrel-down" aria-label="Siguiente">&#9660;</button>
   </div>
 </div>
-
-<!-- TIER 2: destacado dark -->
-<div class="proj-dark reveal">
-  <span class="badge" data-es="Liderazgo · IoT · 2024" data-en="Leadership · IoT · 2024" data-jp="リーダーシップ · IoT · 2024">Liderazgo &middot; IoT &middot; 2024</span>
-  <h3 data-es="SMART HOME — DOMÓTICA" data-en="SMART HOME — AUTOMATION" data-jp="スマートホーム — 自動化">SMART HOME &mdash; DOMOTICA</h3>
-  <p data-es="Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 personas como PM y dev frontend." data-en="Scale model of a functional smart home with ESP32 connected via WiFi to a web interface. Real-time control of servomotors, LEDs and sensors. Led a team of 5 as PM and frontend developer." data-jp="WiFi接続ESP32とWebインターフェースによるスマートホームの縮尺模型。サーボ・LED・センサーをリアルタイム制御。PMとフロント開発者として5人チームをリード。">Maqueta a escala de una smart home funcional con ESP32 conectado por WiFi a una interfaz web. Control de servomotores, LEDs y sensores en tiempo real. Lidere un equipo de 5 personas como PM y dev frontend.</p>
-  <div class="tags">
-    <span class="tag">ESP32</span><span class="tag">HTML / CSS</span><span class="tag">WiFi</span><span class="tag">IoT</span><span class="tag">Team Lead x5</span><span class="tag">XAMPP</span>
-  </div>
-</div>
-
-<div class="section-label reveal"><span data-es="Más proyectos" data-en="More projects" data-jp="その他のプロジェクト">Mas proyectos</span> <span class="proj-count" data-count="7">0</span></div>
-<div class="filter-bar reveal">
-  <button class="filter-pill active" data-filter="all" data-es="Todos" data-en="All" data-jp="すべて">Todos</button>
-  <button class="filter-pill" data-filter="fullstack">Full-stack</button>
-  <button class="filter-pill" data-filter="data" data-es="Data &amp; IA" data-en="Data &amp; AI" data-jp="データ &amp; AI">Data &amp; IA</button>
-</div>
-<div class="proj-grid">
-
-  <div class="proj-card reveal" data-cat="fullstack">
-    <span class="cat-tag">Full-stack · PWA</span>
-    <h4>LOGISWIFT</h4>
-    <p class="desc" data-es="PWA mobile-first de logística urbana para un repartidor/vendedor: hoja de ruta del día, registro de ventas al instante, stock del vehículo y cierre de jornada. Pensada para usarse con una mano." data-en="Mobile-first urban-logistics PWA for a delivery driver/vendor: daily route sheet, on-the-spot sales logging, vehicle stock and end-of-day close. Built to be used one-handed." data-jp="配達員・販売員向けモバイルファースト物流PWA：日次ルート、その場での売上記録、車両在庫、日次締め。片手操作を想定。">PWA mobile-first de logistica urbana para un repartidor/vendedor: hoja de ruta del dia, registro de ventas al instante, stock del vehiculo y cierre de jornada. Pensada para usarse con una mano.</p>
-    <div class="tags"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Tailwind v4</span><span class="tag">Supabase</span><span class="tag">PWA</span></div>
-    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/LogiSwift" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="fullstack">
-    <span class="cat-tag">Full-stack · Pagos</span>
-    <h4 data-es="OCTAVA CAFÉ" data-en="OCTAVA CAFÉ" data-jp="オクタバ カフェ">OCTAVA CAFE</h4>
-    <p class="desc" data-es="Cafetería de especialidad Take Away: catálogo online, personalización del pedido (leche, azúcar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN)." data-en="Specialty coffee shop, take-away only: online catalog, order customization (milk, sugar, gluten-free), pickup time and Mercado Pago payment (Checkout Pro + IPN webhooks)." data-jp="スペシャルティコーヒーのテイクアウト専門店：オンラインカタログ、注文カスタマイズ（ミルク・砂糖・グルテンフリー）、受取時間、Mercado Pago決済（Checkout Pro + IPN）。">Cafeteria de especialidad Take Away: catalogo online, personalizacion del pedido (leche, azucar, Sin TACC), horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN).</p>
-    <div class="tags"><span class="tag">PHP 8</span><span class="tag">MySQLi</span><span class="tag">JS Vanilla</span><span class="tag">Mercado Pago</span></div>
-    <div class="links">
-      <a class="plink" href="https://github.com/santinovargasdb/Virtual-Kiosk" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
-      <a class="plink" href="https://virtual-kiosk.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
-    </div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="fullstack">
-    <span class="cat-tag">Full-stack · PWA</span>
-    <h4 data-es="DOJO LEDGER" data-en="DOJO LEDGER" data-jp="道場レジャー">DOJO LEDGER</h4>
-    <p class="desc" data-es="PWA mobile-first para trackear hábitos con una economía de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo." data-en="Mobile-first PWA to track habits with a gamified coin economy: one-tap 3-state control, optimistic updates and a live balance." data-jp="ゲーム化されたコイン経済で習慣を記録するモバイルファーストPWA：ワンタップの3状態管理、楽観的更新、リアルタイム残高。">PWA mobile-first para trackear habitos con una economia de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo.</p>
-    <div class="tags"><span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">Tailwind v4</span><span class="tag">Supabase</span></div>
-    <div class="links">
-      <a class="plink" href="https://github.com/santinovargasdb/habits-tracker-app" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
-      <a class="plink" href="https://habits-tracker-app-ten.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
-    </div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="fullstack">
-    <span class="cat-tag">E-commerce</span>
-    <h4>ARCEA</h4>
-    <p class="desc" data-es="Tienda online completa: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph)." data-en="Full e-commerce store: product catalog, cart and Mercado Pago checkout, user authentication and technical SEO (sitemap, OpenGraph)." data-jp="本格的なEコマース：商品カタログ、カート、Mercado Pago決済、ユーザー認証、技術的SEO（sitemap・OpenGraph）。">Tienda online completa: catalogo de productos, carrito y checkout con Mercado Pago, autenticacion de usuarios y SEO tecnico (sitemap, OpenGraph).</p>
-    <div class="tags"><span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Mercado Pago</span><span class="tag">shadcn/ui</span></div>
-    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/arcea-app" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="fullstack">
-    <span class="cat-tag">App Web · IA</span>
-    <h4 data-es="GUARDARROPAS VIRTUAL" data-en="VIRTUAL WARDROBE" data-jp="バーチャルワードローブ">GUARDARROPAS VIRTUAL</h4>
-    <p class="desc" data-es="App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con un estilista por IA." data-en="App to digitize your wardrobe: upload your garments, organize them in a virtual closet and generate outfit combinations with an AI stylist." data-jp="ワードローブをデジタル化するアプリ：服をアップロードして仮想クローゼットに整理し、AIスタイリストでコーデを生成。">App para digitalizar tu guardarropa: subis tus prendas, las organizas en un closet virtual y generas combinaciones de outfits con un estilista por IA.</p>
-    <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Supabase</span><span class="tag">IA</span></div>
-    <div class="links">
-      <a class="plink" href="https://github.com/santinovargasdb/Guardarropas-Virtual" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
-      <a class="plink" href="https://guardarropas-virtual.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
-    </div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="data">
-    <span class="cat-tag">Data &amp; IA · SMATA</span>
-    <h4 data-es="MONITOR DE MEDIOS" data-en="MEDIA MONITOR" data-jp="メディアモニター">MONITOR DE MEDIOS</h4>
-    <p class="desc" data-es="Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word." data-en="Real solution for a real company: media &amp; social monitor for SMATA's Press Dept., with rule-based filtering, AI scoring (Gemini) and Word reports." data-jp="実企業向けの実ソリューション：SMATA広報部のメディア・SNSモニター。ルールベース filtering、AI（Gemini）スコアリング、Wordレポート。">Solucion real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word.</p>
-    <div class="tags"><span class="tag">Python</span><span class="tag">IA (Gemini)</span><span class="tag">Filtrado img/texto</span><span class="tag">Word</span></div>
-    <div class="links">
-      <a class="plink" href="https://github.com/santinovargasdb/social-media-filter-engine" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a>
-      <a class="plink" href="https://filtro-redes-sociales-smt.vercel.app" target="_blank" rel="noopener"><span class="live-dot"></span><span data-es="En vivo" data-en="Live" data-jp="公開中">En vivo</span></a>
-    </div>
-  </div>
-
-  <div class="proj-card reveal" data-cat="data">
-    <span class="cat-tag">Python · NLP</span>
-    <h4 data-es="INTELIGENCIA DE NOTICIAS" data-en="NEWS INTELLIGENCE" data-jp="ニュースインテリジェンス">INTELIGENCIA DE NOTICIAS</h4>
-    <p class="desc" data-es="Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit." data-en="Modular Python system that pulls news via RSS, categorizes and summarizes with NLP, translates international sources and generates executive reports. Streamlit interface." data-jp="RSSでニュースを取得し、NLPで分類・要約、海外ソースを翻訳して要約レポートを生成するPythonモジュラーシステム。Streamlit UI。">Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit.</p>
-    <div class="tags"><span class="tag">Python</span><span class="tag">RSS</span><span class="tag">NLP</span><span class="tag">TextBlob</span><span class="tag">Streamlit</span></div>
-    <div class="links"><a class="plink" href="https://github.com/santinovargasdb/monitor-inteligencia-smata" target="_blank" rel="noopener"><span>&#128025;</span>GitHub</a></div>
-  </div>
-
-</div>
+<p class="barrel-hint" data-es="Girá con scroll o arrastrando · o usá las flechas" data-en="Spin with scroll or drag · or use the arrows" data-jp="スクロールかドラッグで回転 · または矢印で">Girá con scroll o arrastrando · o usá las flechas</p>
   </div>
 </section>
 
