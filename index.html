@@ -173,8 +173,6 @@ section > .container{max-width:var(--maxw);margin:0 auto}
 .live-dot{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--fire)}
 .live-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fire);animation:pulse 1.5s ease-in-out infinite}
 .proj-card .links{margin-top:auto}
-@media (max-width:1024px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
-
 /* CONTACT */
 #contacto{background:var(--ink);color:var(--surface)}
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
@@ -199,80 +197,28 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
 .cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(232,78,27,0.07) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:9999}
 
 /* ── MOBILE RESPONSIVE ─────────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* NAV */
-  nav{padding:14px 18px;flex-wrap:wrap;gap:10px}
-  .nav-logo{font-size:13px;width:100%}
-  .nav-links{gap:16px;flex-wrap:wrap}
-  .nav-links a{font-size:11px}
-  .lang-toggle{margin-left:auto}
-
-  /* HERO — stack vertically */
-  .hero{
-    grid-template-columns:1fr;
-    min-height:auto;
-    padding:60px 20px 40px;
-    gap:0;
-  }
-
-  .hero-name{font-size:clamp(64px,18vw,96px);margin-bottom:8px}
-  .hero-role{font-size:11px;margin-bottom:14px}
-  .hero-desc{font-size:14px;margin-bottom:24px;max-width:100%}
-  .hero-tag{margin-bottom:18px}
-  .hero-ctas{flex-wrap:wrap;gap:10px}
-  .btn-fire,.btn-outline{font-size:12px;padding:11px 18px}
-
-  /* Hero right — show below left on mobile */
-  .hero-right{
-    margin-top:32px;
-    position:relative;
-    z-index:2;
-  }
-  .photo-wrap{width:min(280px,80vw);height:auto;aspect-ratio:4/5}
-  .photo-frame{border-radius:8px 8px 0 0}
-  .photo-chips{width:min(280px,80vw)}
-  .photo-chip{font-size:11px;padding:7px 12px}
-
-  /* SECTIONS */
-  section{padding:52px 20px}
-  .section-title{font-size:clamp(32px,10vw,50px);margin-bottom:28px}
-
-  /* ABOUT */
-  .about-layout{grid-template-columns:1fr;gap:32px}
-  .about-text p{font-size:14px}
-  .about-stats{grid-template-columns:repeat(3,1fr);gap:8px}
-  .about-stat .n{font-size:26px}
-  .about-stat .l{font-size:9px}
-
-  /* SKILLS */
-  .skills-strip{grid-template-columns:1fr 1fr}
-  .skill-col{padding:20px 16px}
-  .skill-col-head{font-size:18px}
-
-  /* PROJECTS */
-  .proj-hero{padding:28px 24px}
-  .proj-dark{padding:28px 24px}
-  .proj-grid{grid-template-columns:1fr;gap:14px}
-  .proj-card{padding:20px}
-  .proj-card h4{font-size:24px}
-
-  /* CONTACT */
+@media (max-width:900px){
+  nav{padding:12px 18px;flex-wrap:wrap;gap:10px}
+  .nav-logo{font-size:13px}
+  .nav-pill{order:3;width:100%;justify-content:center;overflow-x:auto}
+  .hero{grid-template-columns:1fr;padding:48px 20px;gap:32px;min-height:auto}
+  .hero-right{max-width:360px}
   .contact-layout{grid-template-columns:1fr;gap:32px}
-  .contact-big-text{font-size:clamp(32px,10vw,50px);margin-bottom:16px}
-  .contact-sub{font-size:14px}
-
-  /* FOOTER */
-  footer{flex-direction:column;gap:10px;text-align:center;padding:18px 20px}
-
-  /* Hide cursor glow on touch */
+  .skills-strip{grid-template-columns:1fr 1fr}
+  .skill-col{border-left:0;padding:8px 0 8px 0;border-top:1.5px dotted var(--dot);padding-top:18px}
+  .about-layout{grid-template-columns:1fr;gap:32px}
+}
+@media (max-width:768px){
+  section{padding:52px 20px}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-hero,.proj-dark{padding:32px 24px}
+  footer{flex-direction:column;gap:10px;text-align:center}
   .cursor-glow{display:none}
 }
-
-@media (max-width: 480px) {
-  nav{padding:12px 16px}
-  .nav-pill{display:none} /* keep logo + lang only on very small */
-  .hero{padding:50px 16px 32px}
-  .hero-name{font-size:clamp(52px,16vw,80px)}
+@media (max-width:480px){
+  .nav-pill{gap:2px;padding:4px 6px}
+  .nav-pill a{padding:7px 10px;font-size:13px}
+  .hero-name{font-size:clamp(56px,17vw,90px)}
   .skills-strip{grid-template-columns:1fr}
   .about-stats{grid-template-columns:repeat(3,1fr)}
 }
