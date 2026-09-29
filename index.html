@@ -202,6 +202,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
 .footer-colors{display:flex;gap:6px}
 .footer-dot{width:9px;height:9px;border-radius:50%}
 .cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(232,78,27,0.07) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:left 0.08s ease,top 0.08s ease;z-index:9999}
+#ascii-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 
 /* ── MOBILE RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width:900px){
@@ -234,6 +235,7 @@ footer{background:var(--ink);color:rgba(245,240,232,0.5);padding:24px 40px;displ
 </head>
 <body>
 
+<canvas id="ascii-bg" aria-hidden="true"></canvas>
 <div class="cursor-glow" id="glow"></div>
 
 <nav>
@@ -789,6 +791,85 @@ if(send){ send.addEventListener('click',()=>{
   (mq.addEventListener ? mq.addEventListener('change', setMode) : mq.addListener(setMode));
   window.addEventListener('resize', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
   window.addEventListener('load', ()=>{ if(!stage.classList.contains('flat')){ layout(); render(); } });
+})();
+
+// ── Fondo ASCII ripple ───────────────────────────────────────────
+(function(){
+  const cv = document.getElementById('ascii-bg');
+  if(!cv) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  if(reduce || coarse || window.innerWidth < 760){ cv.style.display='none'; return; }
+  const ctx = cv.getContext('2d');
+  const CELL = 15, GLYPHS = " .·:-=+*x%#@", DAMP = 0.945;
+  let W, H, cols, rows, prev, curr;
+
+  function resize(){
+    W = cv.width = cv.clientWidth; H = cv.height = cv.clientHeight;
+    cols = Math.ceil(W/CELL)+2; rows = Math.ceil(H/CELL)+2;
+    prev = new Float32Array(cols*rows); curr = new Float32Array(cols*rows);
+    ctx.font = CELL+'px ui-monospace, Menlo, Consolas, monospace';
+    ctx.textBaseline = 'top';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drop(px, py, s){
+    const cx = Math.round(px/CELL)+1, cy = Math.round(py/CELL)+1, r = 2;
+    for(let y=-r; y<=r; y++) for(let x=-r; x<=r; x++){
+      const gx = cx+x, gy = cy+y;
+      if(gx<1||gy<1||gx>=cols-1||gy>=rows-1) continue;
+      const d = Math.hypot(x,y); if(d>r) continue;
+      prev[gy*cols+gx] += s*(1-d/r);
+    }
+  }
+
+  let lastX=0, lastY=0, hasLast=false;
+  window.addEventListener('pointermove', e=>{
+    if(e.pointerType==='touch') return;
+    const x=e.clientX, y=e.clientY;
+    if(hasLast){
+      const dist=Math.hypot(x-lastX,y-lastY), steps=Math.min(6,Math.floor(dist/CELL));
+      for(let i=0;i<=steps;i++) drop(lastX+(x-lastX)*i/Math.max(1,steps), lastY+(y-lastY)*i/Math.max(1,steps), 0.24);
+    }
+    lastX=x; lastY=y; hasLast=true;
+  }, {passive:true});
+  window.addEventListener('pointerdown', e=>{ if(e.pointerType!=='touch') drop(e.clientX, e.clientY, 1.5); });
+
+  let acc=0;
+  function ambient(dt){ acc+=dt; if(acc>1300){ acc=0; if(Math.random()<0.7) drop(Math.random()*W, Math.random()*H, 0.5); } }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    for(let y=1;y<rows-1;y++){
+      for(let x=1;x<cols-1;x++){
+        const v = prev[y*cols+x], a = Math.abs(v);
+        if(a < 0.085) continue;
+        const g = GLYPHS[Math.min(GLYPHS.length-1, 1 + Math.floor(a*(GLYPHS.length-1)))];
+        if(g===' ') continue;
+        const alpha = Math.min(0.24, a*0.32);
+        ctx.fillStyle = v>0 ? 'rgba(224,88,38,'+alpha+')' : 'rgba(122,104,84,'+alpha+')';
+        ctx.fillText(g, (x-1)*CELL, (y-1)*CELL);
+      }
+    }
+  }
+
+  let last=0;
+  function step(t){
+    const dt = last ? Math.min(50, t-last) : 16; last = t;
+    ambient(dt);
+    for(let y=1;y<rows-1;y++){
+      const row = y*cols;
+      for(let x=1;x<cols-1;x++){
+        const i = row+x;
+        curr[i] = ((prev[i-1]+prev[i+1]+prev[i-cols]+prev[i+cols])*0.5 - curr[i]) * DAMP;
+      }
+    }
+    const tmp = prev; prev = curr; curr = tmp;
+    render();
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
 })();
 </script>
 </body>
