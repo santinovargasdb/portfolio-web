@@ -83,8 +83,8 @@ Regla: **jerarquía por color, no por sombra**. Canvas (más oscuro) → surface
 4. **Franja de stats (NUEVA — stat cards firma de Caldera)** — Fila de 4 cards de 40px, una
    ember y las otras en surface/cyan/yellow, con **números gigantes Bebas que suben con contador**
    al entrar en viewport. Contenido honesto y contable:
-   - `3` Idiomas · `7` Proyectos · `5` Personas lideradas · `12` Años en artes marciales.
-   (Copys finales ajustables; los números salen del contenido real.)
+   - `3` Idiomas · `11` Proyectos · `5` Personas lideradas · `12` Años en artes marciales.
+   (Copys finales ajustables; los números salen del contenido real — 11 proyectos en el catálogo.)
 
 5. **Sobre mí** — Título de sección gigante. Texto editorial (DM Sans 500). Las identity cards
    pasan a **cards planas limestone 40px** con acento de color (borde/pill), sin sombra.
@@ -94,12 +94,18 @@ Regla: **jerarquía por color, no por sombra**. Canvas (más oscuro) → surface
    bordes). Encabezados en Bebas con subrayado de color. Skills "fuertes" como **pills**; el resto
    como items con dot.
 
-7. **Proyectos**
-   - **AlToque** → card destacada grande con **halftone cyan→fire** (equivalente al "plasma hero card").
-   - **Smart Home** → card oscura destacada (obsidiana) full-width con borde superior de gradiente.
-   - **Grid de content cards** (Arcea, Guardarropas, Inteligencia de Noticias, Monitor de Medios,
-     Este sitio): cards limestone 40px, **tag de categoría amarillo píldora**, título Bebas, links.
-   - Todos con hover-lift plano (transform + color), sin sombra.
+7. **Proyectos (SECCIÓN ESTRELLA)** — el foco del sitio. Se traen **todos** los proyectos
+   destacados desde el GitHub real (`santinovargasdb`). Layout en **3 tiers** para dar énfasis:
+   - **Tier 1 — Insignia:** **AlToque** en card grande con **halftone cyan→fire** (equivalente al
+     "plasma hero card" de Caldera). Título Bebas grande, stack completo, links GitHub + Live.
+   - **Tier 2 — Destacado:** **Smart Home / Domótica ESP32** en card oscura (obsidiana) full-width
+     con borde superior de gradiente — la historia de liderazgo (PM + dev frontend, equipo x5, IoT).
+   - **Tier 3 — Grid filtrable:** **pills de categoría** (`Todos · Full-stack · IoT · Data & IA · Web`)
+     que **filtran el grid con animación** (FLIP/transform + stagger). Cada card (limestone 40px, plana):
+     tag de categoría (píldora amarilla) · título Bebas · descripción 1–2 líneas · tags de tech ·
+     indicador **"En vivo"** (dot) + links GitHub / Demo · hover-lift plano.
+   - Contador "N proyectos" arriba de la sección (sube con la animación de la franja de stats).
+   - Todo con hover-lift plano (transform + color), sin sombra.
 
 8. **Contacto** — Sección **oscura (obsidiana)**, título gigante ("TRABAJAMOS JUNTOS?"),
    subtítulo, un **campo tipo píldora** (radio 100px, borde chalk) con botón ember (mailto),
@@ -139,6 +145,30 @@ divisores punteados, y las animaciones nuevas del inventario.
 - Sin secciones de contenido nuevas más allá de la franja de stats.
 - Sin cambiar textos/copys de fondo (solo ajustes mínimos para stats).
 - Sin librerías JS externas de animación (todo vanilla + CSS).
+
+## Apéndice — Catálogo de proyectos (fuente de verdad, GitHub real)
+
+Datos traídos de `github.com/santinovargasdb` (2026-09-29). Copy trilingüe ES/EN/JP se
+escribe en implementación; acá va el dato base. Tier: 1=insignia, 2=destacado, G=grid.
+
+| # | Proyecto | Tier | Categoría | Descripción base (ES) | Stack | GitHub | Live |
+|---|---|---|---|---|---|---|---|
+| 1 | **AlToque** | 1 | Full-stack | Marketplace que conecta personas con profesionales de oficios verificados (plomeros, electricistas, cerrajeros) para urgencias y trabajos agendados. Matching por geolocalización, pago híbrido con Mercado Pago, instalable como PWA. | Next.js 15 · TypeScript · Supabase · PostGIS · Mercado Pago · Tailwind v4 · PWA | `AlToque` | al-toque-eta.vercel.app |
+| 2 | **Smart Home — Domótica** | 2 | IoT | Maqueta a escala de una smart home funcional con ESP32 por WiFi a una interfaz web: control de servomotores, LEDs y sensores en tiempo real. Lideré un equipo de 5 como PM y dev frontend. | ESP32 · HTML/CSS · WiFi · IoT · XAMPP · Team Lead x5 | — (proyecto escolar) | — |
+| 3 | **LogiSwift** | G | Full-stack | PWA mobile-first de logística urbana para un repartidor/vendedor: hoja de ruta del día, registro de ventas en el momento, stock del vehículo y cierre de jornada. Diseñada para usarse con una mano arriba de la camioneta. | Vite · React 19 · TypeScript · Tailwind v4 · shadcn/ui · TanStack Query · Supabase · PWA | `LogiSwift` | — |
+| 4 | **Octava Café** (Virtual-Kiosk) | G | Full-stack | Cafetería de especialidad en modalidad Take Away: catálogo online, personalización del pedido (leche, azúcar, Sin TACC), elección de horario de retiro y pago con Mercado Pago (Checkout Pro + Webhooks IPN). | PHP 8 · MySQLi · JS Vanilla (ES Modules) · MySQL · Mercado Pago (IPN) | `Virtual-Kiosk` | virtual-kiosk.vercel.app |
+| 5 | **Dojo Ledger** (habits-tracker) | G | Full-stack | PWA mobile-first para trackear hábitos con una economía de monedas gamificada: control de 3 estados a un toque, actualizaciones optimistas y balance en vivo. | Next.js 16 · React 19 · Tailwind v4 · shadcn/ui · Supabase | `habits-tracker-app` | habits-tracker-app-ten.vercel.app |
+| 6 | **Arcea** (arcea-app) | G | Full-stack | Tienda online completa: catálogo de productos, carrito y checkout con Mercado Pago, autenticación de usuarios y SEO técnico (sitemap, OpenGraph). | Next.js 15 · TypeScript · Supabase · Mercado Pago · shadcn/ui | `arcea-app` | — |
+| 7 | **Guardarropas Virtual** (virtual-wardrobe-app) | G | Full-stack · IA | App para digitalizar tu guardarropa: subís tus prendas, las organizás en un clóset virtual y generás combinaciones de outfits con un estilista por IA. | React · TypeScript · Vite · Supabase · IA | `Guardarropas-Virtual` | guardarropas-virtual.vercel.app |
+| 8 | **Monitor de Medios SMATA** (social-media-filter-engine) | G | Data & IA | Solución real para una empresa real: monitor de medios y redes para el Depto. de Prensa de SMATA, con filtrado por reglas, scoring por IA (Gemini) e informes en Word. | Python · Filtrado img/texto · IA (Gemini) · Reportes Word | `social-media-filter-engine` | filtro-redes-sociales-smt.vercel.app |
+| 9 | **Inteligencia de Noticias** (monitor-inteligencia-smata) | G | Data & IA | Sistema modular en Python que extrae noticias por RSS, las categoriza y resume con NLP, traduce fuentes internacionales y genera informes ejecutivos. Interfaz en Streamlit. | Python · RSS · NLP · TextBlob · Streamlit | `monitor-inteligencia-smata` | — |
+| 10 | **Botonesmata** (botonera-app) | G | Web · Fun | Botonera de sonidos tipo sampler: subís o grabás audios con el micrófono, se guardan en el navegador (IndexedDB) y sobreviven al recargar. Sin servidor. | JavaScript Vanilla · IndexedDB · Web Audio · MediaRecorder | `botonera-app` | — |
+| 11 | **Este sitio** (portfolio-web) | G | Web | Portfolio personal con soporte ES/EN/JP, diseñado y desarrollado desde cero. | HTML · CSS · JavaScript vanilla | `portfolio-web` | santinovargasdb.netlify.app |
+
+Notas:
+- El repo `santinovargasdb` (perfil README) se omite.
+- Categorías del filtro: `Todos · Full-stack · IoT · Data & IA · Web`.
+- Los links de GitHub son `github.com/santinovargasdb/<repo>`.
 
 ## Verificación
 
